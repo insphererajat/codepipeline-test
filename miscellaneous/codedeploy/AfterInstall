@@ -6,7 +6,7 @@ HPSLSA_BACKUP_DIR="/var/www/hpslsa-old"
 DEPLOYMENT_GROUP_NAME_ENV=$(echo "$DEPLOYMENT_GROUP_NAME" | cut -d- -f1)
 BRANCH_NAME=$(echo "$BITBUCKET_BRANCH" | cut -d- -f1)
 #S3_BUCKET="code-deploy-probono-web"
-S3_BUCKET="s3://hpslsa-codedeploy/Config/$DEPLOYMENT_GROUP_NAME"
+S3_BUCKET="s3://hpsls-codedeploy/Config/$DEPLOYMENT_GROUP_NAME"
 
 
 
