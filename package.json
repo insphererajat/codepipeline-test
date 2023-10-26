@@ -1,0 +1,33 @@
+{
+  "package_name": "CraftCMS Boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gulp modules for an awesome front-end build tool",
+  "dependencies": {
+    "grunt-contrib-cssmin": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belief/CraftCMS-Boilerplate.git"
+  },
+  "devDependencies": {
+    "grunt": "^1.4.1",
+    "grunt-cache-breaker": "^2.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-css": "^0.5.4",
+    "grunt-css-import": "^0.1.8"
+  },
+  "name": "hphc",
+  "bugs": {
+    "url": "https://github.com/belief/CraftCMS-Boilerplate/issues"
+  },
+  "homepage": "https://github.com/belief/CraftCMS-Boilerplate#readme",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

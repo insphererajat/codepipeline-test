@@ -1,0 +1,59 @@
+/* Begin empty screen elements files
+   ======================== */
+
+.adm-c-pageHeader {
+    $Self: &;
+    padding: 0px 20px;
+    @extend .adm-u-flexed;
+    @extend .adm-u-align-center;
+
+    &__item {
+        margin-right: 15px;
+    }
+
+    &__title {
+        margin-bottom: 0;
+        @extend .fs24;
+        @extend .pf-light;
+    }
+
+    &__breadcrumb {
+        background: transparent;
+        margin-bottom: 0;
+    }
+  
+    &__action {
+        @extend .adm-u-flexed;
+
+        &-item {
+            margin-left: 20px;
+
+            &-link {
+                color: $black_sh2;
+            }
+            &-icon {
+                margin-right: 3px;
+                @extend .fs14;
+            }
+            &-value {
+                @extend .pf-regular;
+                @extend .fs14;
+            }
+        }
+    }
+
+    &__breadcrumb {
+        padding: 0;
+    }
+
+    &.design1 { 
+        background: $white none repeat scroll 0 0;
+        padding: 18px 20px; 
+        margin-bottom: 10px;
+    }
+    @include responsive(xs) {
+         
+    }  
+} 
+/* End empty screen elements files
+   ======================== */

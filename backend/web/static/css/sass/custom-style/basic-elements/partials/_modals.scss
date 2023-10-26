@@ -1,0 +1,149 @@
+/* Begin modals files
+   ======================== */
+
+/* Begin modal fullwidth style */
+.o-modal {
+    $modalSelf: &;
+
+    .modal-content {
+        border: transparent;
+
+        p {
+            @extend .fs14;
+            @extend .pf-regular;
+        }
+    }
+
+    &.u_pad25_25 {
+        #{$modalSelf} {
+            &__header {
+                padding: 25px;
+            }
+        }
+
+        .modal-content {
+            .modal-body {
+                padding: 15px 25px;
+            }
+        }
+    }
+
+    &.u_pad20_20 {
+        #{$modalSelf} {
+            &__header {
+                padding: 20px;
+            }
+        }
+
+        .modal-content {
+            .modal-body {
+                padding: 15px 20px;
+            }
+        }
+    }
+
+    &.u_pad15_15 {
+        #{$modalSelf} {
+            &__header {
+                padding: 15px;
+            }
+        }
+
+        .modal-content {
+            .modal-body {
+                padding: 15px;
+            }
+        }
+    }
+
+    &__header {
+        border-bottom: 1px solid $white_sh6;
+        @extend .adm-u-flexed;
+        @extend .adm-u-justify-btw;
+        position: relative;
+    }
+
+    &-dialog {
+        margin: 0px;
+        @include size(100%);
+        max-width: 100%;
+    }
+
+    &-content {
+        border: 0px none;
+        @include border-radius(0px);
+        @include box-shadow(none);
+        margin-bottom: 1.75rem;
+
+        .u-generic__box {
+            @include calc(max-height, '100vh - 220px');
+        }
+
+    }
+
+
+    &-small {
+        .modal-dialog {
+            height: auto;
+            margin: 1.75rem auto;
+            width: 90%;
+            max-width: 400px;
+            min-width: inherit;
+        }
+
+        &--450 {
+            .modal-dialog {
+                height: auto;
+                margin: 1.75rem auto;
+                width: 90%;
+                max-width: 450px;
+                min-width: inherit;
+            }
+        }
+
+        &--550 {
+            .modal-dialog {
+                height: auto;
+                margin: 1.75rem auto;
+                width: 90%;
+                max-width: 550px;
+                min-width: inherit;
+            }
+        }
+
+        &--620 {
+            .modal-dialog {
+                height: auto;
+                margin: 1.75rem auto;
+                width: 90%;
+                max-width: 620px;
+                min-width: inherit;
+            }
+        }
+    }
+
+    &-large {
+        .modal-dialog {
+            height: auto;
+            margin: 1.75rem auto;
+            width: 100%;
+            max-width: 800px;
+            min-width: inherit;
+        }
+    }
+
+    &.size-1000 {
+        .modal-dialog {
+            height: auto;
+            margin: 1.75rem auto;
+            width: 95%;
+            max-width: 1000px;
+            min-width: inherit;
+        }
+    }
+}
+
+/* End modal fullwidth style */
+
+/* End modals files
+   ======================== */

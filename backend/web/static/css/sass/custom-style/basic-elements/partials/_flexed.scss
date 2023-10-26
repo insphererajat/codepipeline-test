@@ -1,0 +1,69 @@
+/* Begin flexed related files
+   ======================== */
+
+.adm-u-flexed {
+    @include flexbox();
+}
+
+.adm-u-flex-wrap {
+    @include flex-wrap(wrap);
+}
+
+.adm-u-flex-nowrap {
+    @include flex-wrap(nowrap);
+}
+
+.adm-u-inline-flexed {
+    @include inline-flex();
+}
+
+.adm-u-flexValue1 {
+    @include flex(1 0);
+}
+
+.adm-u-flex-direction-column {
+    @include flex-direction(column, vertical);
+}
+
+.adm-u-flex-direction-row {
+    @include flex-direction(row, horizontal);
+}
+
+.adm-u-flex-direction-row-reverse {
+    @include flex-direction(row-reverse, horizontal);
+}
+
+.adm-u-justify-start {
+    @include justify-content(flex-start);
+}
+
+.adm-u-justify-center {
+    @include justify-content(center);
+}
+
+.adm-u-justify-btw {
+    @include justify-content(space-between);
+}
+
+.adm-u-justify-around {
+    @include justify-content(space-around);
+}
+
+.adm-u-justify-end {
+    @include justify-content(flex-end);
+}
+
+.adm-u-align-start {
+    @include align-items(flex-start);
+}
+
+.adm-u-align-center {
+    @include align-items(center);
+}
+
+.adm-u-align-end {
+    @include align-items(flex-end);
+}
+
+/* End flexed related files
+   ======================== */

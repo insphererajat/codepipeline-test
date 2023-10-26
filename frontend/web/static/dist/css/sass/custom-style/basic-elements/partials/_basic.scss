@@ -1,0 +1,167 @@
+/* Begin basic related files
+   ======================== */
+
+.u-radius4 {
+    @include border-radius(4px);
+}
+
+.u-radius5 {
+    @include border-radius(5px);
+}
+
+.u-radius6 {
+    @include border-radius(6px);
+}
+.u-radius7 {
+    @include border-radius(7px);
+}
+.u-radius8 {
+    @include border-radius(8px);
+}
+
+.u-radius9 {
+    @include border-radius(9px);
+}
+
+.u-radius10 {
+    @include border-radius(10px);
+}
+.u-radius11 {
+    @include border-radius(11px);
+}
+.u-radius12 {
+    @include border-radius(12px);
+}
+.u-radius13 {
+    @include border-radius(13px);
+}
+.u-radius14 {
+    @include border-radius(14px);
+}
+.u-radius15 {
+    @include border-radius(15px);
+}
+.u-radius16 {
+    @include border-radius(16px);
+}
+
+.u-radius20 {
+    @include border-radius(20px);
+}
+
+.u-radius25 {
+    @include border-radius(25px);
+}
+
+.u-radius50 {
+    @include border-radius(50%);
+}
+
+.u-radius100 {
+    @include border-radius(100%);
+}
+
+.u-cursor-pointer {
+    cursor: pointer !important;
+}
+
+.u-cursor-default {
+    cursor: default !important;
+}
+
+.u-cursor-move {
+    cursor: move !important;
+}
+  
+.vertical-align-h {
+    top: 50%;
+    @include transform(translateY(-50%));
+}
+
+.vertical-align-c {
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+}
+ 
+.hide {
+    display: none !important;
+}
+
+.txt-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @extend .w100p;
+    white-space: nowrap;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.no-border-bottom {
+    border-bottom: none !important;
+}
+
+.image-covered {
+    @include background-size(cover);
+    background-position: center center;
+}
+
+.u-word-break {
+    word-break: break-all;
+}
+.u-white-space-nowrap {
+    white-space: nowrap;
+}
+
+ 
+
+.dropdown-toggle:focus {
+    outline: none !important;
+} 
+
+.c-menu__icon {
+    $menuicon: &;
+    &-link { 
+        position: relative; 
+        width: 50px;
+        height: 25px; 
+        @extend .u-cursor-pointer;
+        @extend .u-flexed;
+        @extend .u-flex-direction-column;
+        @extend .u-justify-btw;
+         
+        &-bar {
+            height: 2px;
+            width: 30px;
+            background: $black none repeat scroll 0 0;
+            display: block; 
+            @include transition(all 0.6s ease);
+        } 
+    }
+    &.active {
+        #{$menuicon}-link {
+            @extend .u-justify-center;
+            &-bar {
+                &:nth-child(1) { 
+                    @include rotate(50);
+                    @include transition(all 0.6s ease);
+                }
+                &:nth-child(2) { 
+                    @include rotate(-50);
+                    @include transition(all 0.6s ease);
+                }
+                &:nth-child(3) {
+                    visibility: hidden;
+                    display: none;
+                    @include rotate(50);
+                    @include opacity(0);
+                    @include transition(all 0.6s ease);
+                }
+            }
+        } 
+    }
+}
+/* End basic related files
+   ======================== */

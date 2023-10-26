@@ -1,0 +1,186 @@
+/* Begin empty screen elements files
+   ======================== */
+
+.adm-c-emptyScreen {
+    $emptySelf: &;
+
+    &.design1,
+    &.design2 {
+        @extend .adm-u-flexed;
+        @extend .adm-u-justify-center;
+        @extend .adm-u-align-center;
+        @extend .adm-u-flex-direction-column;
+        margin: 50px auto 0;
+        max-width: 450px;
+
+        #{$emptySelf} {
+            &__image {
+                img {
+                    max-width: 300px;
+                }
+            }
+
+            &__content {
+                @extend .adm-u-flexed;
+                @extend .adm-u-justify-center;
+                @extend .adm-u-align-center;
+                @extend .adm-u-flex-direction-column;
+
+                &__label {
+                    color: $zblack;
+                    @extend .pf-medium;
+                    @extend .fs20;
+                    margin-top: 20px;
+                }
+
+                &__description {
+                    color: $black_sh2;
+                    @extend .fs16;
+                    line-height: 1.5;
+                    @extend .pf-regular;
+                    letter-spacing: 0.5px;
+                    text-align: center;
+                    margin-top: 10px;
+                    margin-bottom: 15px;
+                }
+
+                &__error-code {
+                    .label {
+                        color: #a0a0a0;
+                        @extend .fs16;
+                        @extend .pf-medium;
+                        font-weight: normal;
+                        padding: 0;
+                    }
+
+                    .value {
+                        color: #a0a0a0;
+                        @extend .fs16;
+                        @extend .pf-regular;
+                    }
+
+                }
+
+                &__actions {
+                    @extend .adm-u-flexed;
+                    @extend .adm-u-justify-center;
+                    @extend .adm-u-align-start;
+
+                    &-ls {
+                        @extend .adm-u-flexed;
+                        @extend .adm-u-justify-center;
+                        @extend .adm-u-align-center;
+                        @extend .adm-u-flex-direction-column;
+
+                        &__button {
+                            margin-top: 10px;
+                            color: $black_sh3;
+                            @extend .fs14;
+                            line-height: 1.5;
+                            @extend .pf-medium;
+                            text-align: center;
+                            border-bottom: 1px dashed rgba($black_sh7, 0.5);
+
+                            &:hover {
+                                color: $success;
+                            }
+                        }
+                    }
+
+                    &-rs {
+                        margin-left: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.design2 {
+        @extend .adm-u-flexed;
+        @extend .adm-u-justify-around;
+        @extend .adm-u-align-center;
+        @extend .adm-u-flex-direction-column;
+        margin: 50px auto 0;
+        max-width: inherit;
+
+        #{$emptySelf} {
+            &__image {
+                @extend .adm-u-flexed;
+                @extend .adm-u-justify-center;
+
+                img {
+                    max-width: 90%;
+                }
+            }
+
+            &__content {
+                max-width: 350px;
+                order: 1;
+            }
+        }
+
+        &.c-emptyScreen__viewport {
+            margin: 0px auto;
+            @include calc(min-height, '100vh - 35px');
+        }
+    }
+
+    @include responsive(xs) {
+        @include respond-to(md) {
+            &.design2 {
+                @include flex-direction(row, horizontal);
+
+                #{$emptySelf} {
+                    &__image {
+                        img {
+                            max-width: inherit;
+                        }
+                    }
+
+                    &__content {
+                        order: 0;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+.c-emptyContainer {
+    width: 100%;
+    font-size: 14px !important;
+    font-family: 'RobotoRegular' !important;
+    color: $black_sh3 !important;
+    padding: 15px 0 !important;
+    margin: 0px !important;
+
+    * {
+        width: 100%;
+        font-size: 14px !important;
+        font-family: 'RobotoRegular' !important;
+        color: $black_sh3 !important;
+        padding: 15px 0 !important;
+        margin: 0px !important;
+    }
+
+    &--center {
+        text-align: center;
+    }
+
+    &.no-checklist {
+        min-height: 100px;
+    }
+
+    &--noPadding {
+        padding: 0 !important;
+    }
+
+    &--paddingTop4 {
+        padding: 4px 0 0 0 !important;
+    }
+}
+
+/* End empty screen elements files
+   ======================== */

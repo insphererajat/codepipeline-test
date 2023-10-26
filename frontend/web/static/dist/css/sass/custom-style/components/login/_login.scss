@@ -1,0 +1,192 @@
+.login {
+    $loginSelf: &;
+
+    &__wrap {
+        @extend .u-flexed;
+        @extend .u-flex-direction-column;
+        min-height: 100vh;
+
+        &__information {
+            background-color: $white;
+            width: 100%;
+            @extend .u-flexed;
+            @extend .u-flex-direction-column;
+            @extend .u-align-center;
+            padding: 20px 25px;
+            position: relative;
+            overflow: hidden;
+            @extend .u-justify-center;
+
+            &:before {
+                content: '';
+                display: none;
+                @include size(600px);
+                background-color: rgba(#fce6be, 0.5);
+                @extend .u-radius50;
+                position: absolute;
+                top: 50%;
+                left: -520px;
+                @include translate(0, -50%);
+            }
+
+            &__header {
+                @extend .u-flexed;
+                @extend .u-align-center;
+                @extend .u-justify-btw;
+
+                .logo {
+                    max-width: 90px;
+                    @extend .u-flexed;
+                }
+            }
+
+            &__content {
+                @extend .u-flexed;
+                @extend .u-flex-direction-column;
+
+                &-title {
+                    @extend .fs20;
+                    @extend .pf-medium;
+                    color: $zblack;
+                    margin-bottom: 10px;
+                    display: none;
+                }
+
+                &-description {
+                    @extend .fs14;
+                    @extend .pf-light;
+                    color: $black_sh2;
+                    display: none;
+                }
+
+                &-media {
+                    display: none;
+                    width: 120px;
+                    margin-top: 25px;
+                }
+            }
+
+            &__footer {
+                display: none;
+                @extend .u-flex-direction-column;
+                @extend .u-align-center;
+
+                &__text {
+                    @extend .fs14;
+                    @extend .pf-regular;
+                    margin-bottom: 25px;
+                    color: $black_sh2;
+                }
+
+                &__logos {
+                    @extend .u-flexed;
+                    @extend .u-align-center;
+
+                    .logo {
+                        height: 39px;
+                        margin: 0 17px;
+                        @extend .u-flexed;
+
+                        img {
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__form {
+            width: 100%;
+            @extend .u-flexed;
+            @extend .u-align-center;
+            @extend .u-justify-center;
+        }
+
+        &__container {
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+
+    &__container {
+        @include responsive(xs) {
+            #{$loginSelf} {
+                &__wrap {
+                    &__information {
+                        &__header {
+                            width: 100%;
+                        }
+
+                        &__content {
+
+                            &-title,
+                            &-description {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include respond-to(md) {
+                #{$loginSelf} {
+                    &__wrap {
+                        @include flex-direction(row, horizontal);
+
+                        &__information {
+                            padding: 50px 0;
+                            @include calc(width, '100% / 2');
+                            @include align-items(center);
+
+                            &__header {
+                                width: auto;
+                                @include flex-direction(column, vertical);
+                                @include calc(min-height, '100% - 85px');
+                                @include justify-content(start);
+
+                                .logo {
+                                    max-width: 180px;
+                                }
+                            }
+
+                            &__content {
+                                @include calc(min-height, '100% - 139px');
+                                @include align-items(center);
+                                @include justify-content(center);
+
+                                &-media {
+                                    display: block;
+                                }
+                            }
+
+                            &:before {
+                                display: block;
+                            }
+
+                            &__footer {
+                                @include flexbox;
+                            }
+                        }
+
+                        &__form {
+                            @include calc(width, '100% / 2');
+                        }
+                    }
+                }
+            }
+
+            @include respond-to(cminlg) {
+                #{$loginSelf} {
+                    &__wrap {
+                        &__information {
+                            &:before {
+                                @include size(780px);
+                                left: -700px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

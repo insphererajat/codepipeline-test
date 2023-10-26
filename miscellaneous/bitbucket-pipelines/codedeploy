@@ -1,0 +1,48 @@
+#!/bin/bash
+
+if [[ $LAST_COMMIT_MESSAGE = *"skip cd"* ]]; then
+    echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+    echo "SKIPPING CODEDEPLOY"
+    echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+    exit 0
+fi
+
+echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+echo "Zipping of the code to application.zip is already done in Prerequisite Step"
+echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+echo "Pushing application.zip to s3 bucket....! "
+echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+
+NOW=$(date +"%Y%m%d%H%M%S")
+BUCKET_KEY="$APPLICATION_NAME/$NOW-bitbucket_builds.zip"
+
+aws s3 cp /tmp/artifact.zip s3://$S3_BUCKET/$BUCKET_KEY --quiet
+
+echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+echo "Creating CodeDeploy Deployment        "
+echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+
+deploy_groups=()
+if [ "$BITBUCKET_BRANCH" == "master" ]
+then
+    deploy_groups=(Live)
+elif [ "$BITBUCKET_BRANCH" == "uat" ]
+then
+    deploy_groups=(uat)
+elif [ "$BITBUCKET_BRANCH" == "uksssc" ]
+then
+    deploy_groups=(uksssc)
+fi
+
+for deploy_group in ${deploy_groups[*]}
+do
+    echo "Creating deployment for: $deploy_group"
+
+    aws deploy create-deployment \
+            --application-name "$APPLICATION_NAME" \
+            --deployment-group-name "$deploy_group" \
+            --revision "revisionType=S3,s3Location={bucket=$S3_BUCKET,key=$BUCKET_KEY,bundleType=zip}" \
+            --deployment-config-name "$DEPLOYMENT_CONFIG" \
+            --description "New deployment from BitBucket Pipeline" \
+            --ignore-application-stop-failures
+done

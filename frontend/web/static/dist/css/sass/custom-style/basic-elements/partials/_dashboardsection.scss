@@ -1,0 +1,164 @@
+/* dashboard files
+   ======================== */
+.c-dashboarsection{
+	width:100%;
+	&__headwrap {
+		@extend .u-flexed;
+		@include justify-content(space-between);
+		@include align-items(center);
+	    margin-bottom:32px;
+		&-head {
+			@include font-size(35);
+			color:$zblack; 
+		    text-transform:uppercase;
+			@extend .pf-bold;
+		}
+		&-navlink{
+			width:30px;
+			margin-bottom: 9px;
+			display:none;s
+			a{
+				display:block;
+				width:30px;
+				height:19px;
+				background:url(../images/menu-icon.png) no-repeat center center;
+				@include font-size(0);
+				@include transition(all 0.3s ease);
+			}
+		}
+		
+	}
+	
+		&__subhead {
+			@include font-size(30);
+			color:$zblack; 
+			@extend .pf-medium;
+			margin-bottom:25px;
+		}
+	  
+}
+
+.c-dashnotification {
+ margin-top:50px;	
+}
+
+.c-dashboardtiles {
+  $tiles: &;
+  margin-top:20px;
+  margin-bottom:52px;
+  @media only screen and (max-width:991px) {
+	 margin-bottom:0px;	
+	}
+  &__tiles {
+	width:100%;
+	position:relative;
+	@media only screen and (max-width:991px) {
+	 margin-bottom:50px;	
+	}
+	
+	&-imgwrap {
+	 position:absolute;
+	 right:26px;
+	 top:-30px; 
+	 width:99px;
+	 height:99px;	
+	 @extend .u-flexed;
+	 @include align-items(center);
+	 @include justify-content(center);
+	  i {
+		@include font-size(60);
+		color:$white;
+	  }
+	}
+	
+	&-link {
+	 display:block;
+	 width:100%;
+	 height:100%;
+	 min-height:140px;
+	 padding:20px 18px 18px 18px;
+	 @include transition(all 0.3s ease);
+	 &--head {
+		 @include font-size(25);
+		 color:#fff;
+		 min-height:55px;
+		 width:160px;
+		 margin-bottom:7px;
+		 @extend .pf-medium;  
+	 }
+	 &--content{
+		@extend .u-flexed;
+		@include justify-content(space-between);
+		margin-bottom:10px;
+		.subcontent {
+			@include font-size(14);
+		    color:#fff;
+			@extend .pf-light;
+			color:$white;
+			width:80%;
+		}
+		.text {
+			@include font-size(14);
+			color:$white;
+			@extend .pf-medium; 
+			text-align:right;
+		}
+	 }
+	 
+	 &--line {
+		width:100%;
+		height:7px;
+		@include border-radius(4px); 
+	 }
+	 
+	}
+	&.profile {
+		.c-dashboardtiles__tiles-imgwrap{
+			background:#0760e0; 
+		}
+		.c-dashboardtiles__tiles-link {
+			background:#0068ff;
+			&:hover {
+				background:#2d74dc;
+			}
+		}
+		.c-dashboardtiles__tiles-link--line {
+			background:#0053cc; 
+		}
+	}
+	
+	&.hallticket {
+		.c-dashboardtiles__tiles-imgwrap{
+			background:#b457e6; 
+		}
+		.c-dashboardtiles__tiles-link {
+			background:#cf75ff;
+			&:hover {
+				background:#bb5bef;
+			}
+		}
+		.c-dashboardtiles__tiles-link--line {
+			background:#a65ecc; 
+		}
+	}
+	
+	&.result {
+		.c-dashboardtiles__tiles-imgwrap{
+			background:#d65b5c; 
+		}
+		.c-dashboardtiles__tiles-link {
+			background:#ed7071;
+			&:hover {
+				background:#e25d5e;
+			}
+		}
+		.c-dashboardtiles__tiles-link--line {
+			background:#be5a5a; 
+		}
+	}
+	
+  }
+}
+
+/* dashboard files
+   ======================== */

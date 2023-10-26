@@ -1,0 +1,201 @@
+.adm-u-bootbox-customizedV2 {
+    .modal-dialog {
+        @extend .adm-u-radius8;
+
+        .modal-header {
+            background: $white none repeat scroll 0 0;
+        }
+
+        .modal-title {
+            color: $zblack;
+            @extend .pf-medium;
+            @extend .ls025;
+            @extend .fs24;
+        }
+
+        .modal-body {
+            .bootbox-body {
+                color: $grey_sh6;
+                @extend .pf-regular;
+                @extend .ls025;
+                @extend .fs18;
+                padding: 0 5px 10px;
+
+            }
+        }
+
+        .modal-footer {
+            @extend .adm-u-justify-center;
+
+            .btn-default,
+            .btn-default:hover,
+            .btn-primary {
+                background: none repeat scroll 0 0;
+                border: none;
+                color: $danger;
+                @extend .fs16;
+                @extend .pf-regular;
+                outline: none !important;
+            }
+
+            .btn-primary,
+            .btn-primary:hover {
+                background: $success repeat scroll 0 0;
+                border: none;
+                color: $white;
+                @extend .adm-u-radius8;
+                min-width: 120px;
+            }
+
+            .btn-primary:hover {
+                background-color: lighten($success, 9%);
+            }
+        }
+
+        .bootbox-close-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            @include size(32px);
+            @include opacity(0.6);
+            cursor: pointer;
+            background: none repeat scroll 0 0;
+            outline: none;
+            border: none;
+            @include transition(all 0.3s ease);
+            text-indent: -99999999px;
+            @include translate(0, -50%);
+            margin: 0px;
+            padding: 0;
+
+            &:hover {
+                @include opacity(1);
+            }
+
+            &:before,
+            &:after {
+                position: absolute;
+                left: 15px;
+                content: ' ';
+                height: 22px;
+                width: 2px;
+                top: 0;
+            }
+
+            &:before {
+                @include rotate(45);
+            }
+
+            &:after {
+                @include rotate(-45);
+            }
+
+            &:focus {
+                background: none repeat scroll 0 0;
+                outline: none;
+                border: none;
+            }
+        }
+    }
+
+    &.design2 {
+        .modal-dialog {
+            width: 400px;
+            @extend .adm-u-radius12;
+
+            .modal-header {
+                max-height: inherit;
+                padding: 30px 10px 12px;
+                @extend .adm-u-flexed;
+                @extend .adm-u-justify-center;
+                position: relative;
+                border: none;
+
+                .modal-title {
+                    @extend .fs17;
+                    @extend .pf-medium;
+                    line-height: 1.4;
+                    color: $black;
+                    width: 70%;
+                    text-align: center;
+                }
+            }
+
+            .modal-body {
+                padding: 0px 10px 20px;
+                @extend .adm-u-flexed;
+                @extend .adm-u-justify-center;
+
+                .bootbox-body {
+                    @extend .fs15;
+                    @extend .pf-regular;
+                    line-height: 1.4;
+                    color: $black_sh3;
+                    padding-bottom: 0px;
+                    width: 80%;
+                    text-align: center;
+                }
+            }
+
+            .modal-footer {
+                padding: 0px;
+                @extend .adm-u-flexed;
+                @extend .adm-u-justify-btw;
+                border-top: 1px solid $grey_sh2;
+
+                .btn-default {
+                    padding: 0;
+                    margin: 0px;
+                    @include flex(1 0);
+                    height: 50px;
+                    @include border-radius(0 0 0px 12px);
+                    border-right: 1px solid $grey_sh2;
+                    @extend .ls025;
+
+                    &:hover {
+                        background: $grey_sh3 none repeat scroll 0 0;
+                    }
+                }
+
+                .btn {
+                    +.btn {
+                        @include border-radius(0 0 12px 0);
+                    }
+                }
+
+                .btn-primary {
+                    @include flex(1 0);
+                    height: 50px;
+                    @include border-radius(0 0 12px 12px);
+                    margin: 0px;
+                    padding: 0;
+                    @extend .ls025;
+                    outline: none !important;
+                    border: none;
+                    box-shadow: none !important;
+                }
+            }
+        }
+
+        .modal-content {
+            border: 1px solid $grey_sh2;
+            @extend .adm-u-radius12;
+        }
+    }
+
+    &.design3 {
+        overflow: visible;
+
+        .modal-dialog,
+        .modal-content {
+            box-shadow: none;
+            border: none;
+            @extend .adm-u-radius8;
+            overflow: visible;
+
+            .modal-header {
+                @extend .adm-u-radius8;
+            }
+        }
+    }
+}

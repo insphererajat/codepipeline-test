@@ -1,0 +1,50 @@
+.c-form {
+    @include responsive(xs) {
+        @include respond-to(md) {
+
+            &.col2,
+            &.col3,
+            &.col4 {
+                @include flexbox;
+                @include flex-wrap(wrap);
+                margin: 0 -10px;
+
+                .form-grider {
+                    @include calc(max-width, '100% / 2 - 20px');
+                    @include flex(1 0 calc(100% / 2 - 20px)); 
+                    margin: 0 10px 15px;
+
+                    &.col-fullwidth {
+                        @include calc(max-width, '100% - 20px');
+                        @include flex(1 0 calc(100% - 20px));
+                    }
+                }
+            }
+
+            &.col3 {
+                .form-grider {
+                    @include calc(max-width, '100% / 3 - 20px');  
+                    @include flex(1 0 calc(100% / 3 - 20px));
+
+                    &.col-fullwidth {
+                        @include calc(max-width, '100% - 20px');
+                        @include flex(1 0 calc(100% - 20px));
+                    }
+                }
+            }
+
+            &.col4 {
+                .form-grider {
+                    @include calc(max-width, '100% / 4 - 20px');
+                    @include flex(1 0 calc(100% / 4 - 20px));
+
+                    &.col-fullwidth {
+                        @include calc(max-width, '100% - 20px');
+                        @include flex(1 0 calc(100% - 20px));
+                    }
+                }
+            }
+        }
+    }
+}
+

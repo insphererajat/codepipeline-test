@@ -1,0 +1,165 @@
+.c-f-navigation { 
+    background: $theme_color none repeat scroll 0 0;
+    border-top: 4px solid darken($theme_color, 10%);
+    
+    &__wrapper {
+        @extend .u-flexed;
+        @extend .u-justify-btw;
+
+        &-item {
+            &.toggleMenu {
+                display: none;
+            }
+        }
+
+        &-mainMenu {
+            @extend .u-flexed;
+            &-link {
+                color: $white;
+                padding: 15px 20px;
+                line-height: 1.5;
+                @extend .pf-medium;
+                @extend .fs14;
+                @include transition(all 0.3s);
+
+                &:hover, &:focus {
+                    background: lighten($theme_color, 10%);
+                    color: $white;
+                }
+            }
+            .closeMenu { 
+                display: none;
+                
+            }
+        }
+        &-loginArea {
+            @extend .u-flexed; 
+            .login--link {
+                color: $white;
+                padding: 15px 20px;
+                line-height: 1.5;
+                background: lighten($theme_color, 10%);
+                min-width: 170px;
+                @extend .u-flexed;
+                @extend .u-justify-center; 
+                @extend .pf-medium;
+                @extend .fs14;
+                @include transition(all 0.3s);
+            }
+            .dropdown {
+                display: none;
+                .dropdown-menu {
+                    .dropdown-item {
+                        color: $zblack;
+                        @extend .fs14;
+                        @extend .pf-regular;
+                        span {
+                            @extend .fs12;
+                            color: $grey_sh7;
+                            margin-right: 5px;
+                        }
+                        &:focus, &.active {
+                            background: #f8f9fa none repeat scroll 0 0;
+                        }
+                    }
+                }
+            }
+
+            &.loggedIn {
+                .login-single {
+                    display: none;
+                }
+                .dropdown {
+                    @extend .u-flexed;  
+
+                    .login--link { 
+                        @extend .u-align-center;
+                        border-radius: 0;
+                        height: 52px;
+                        padding: 13px 20px;
+                    }
+                    .dropdown-toggle {
+                        &:focus {
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include responsive(xs) {
+        @include respond-to(md) {
+                
+        }
+        
+    }
+} 
+@media screen and (max-width: 768px) {
+    .c-f-navigation { 
+         border-top: none;
+        &__wrapper {
+    
+            &-item {
+                &.toggleMenu {
+                    display: flex;
+                    align-items: center;  
+                    color: $white;
+                    a {
+                        color: $white;
+                    }
+                    span {
+                        color: $white;
+                        font-size: 20px;
+                        margin-left: 5px;
+                    }
+                }
+            }
+            &-mainMenu {
+                width: 300px;
+                position: fixed;
+                top: 0px;
+                left: -300px;
+                flex-wrap: wrap;
+                flex-direction: column;
+                background: $theme_color;
+                height: 100%;
+                z-index: 999;
+                opacity: 0;
+                visibility: hidden;
+                @include transition(all 3s ease);
+
+                &.active {
+                    left: 0px;
+                    opacity: 1;
+                    visibility: visible;
+                }
+                &:after {
+                    content: '';
+                    display: block;
+                    width: calc(100% - 300px);
+                    height: 100%;
+                    right: 0;
+                    background: rgba(0, 0, 0, 0.5);
+                    position: fixed;
+                }
+                &-link {
+                     
+                }
+                .closeMenu {
+                    display: block;
+                    color: $white;
+                    position: absolute;
+                    right: 20px;
+                    top: 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+	@media screen and (max-width: 568px) {
+		.c-f-header__wrapper-top-item + .c-f-header__wrapper-top-item {
+		 display:none;	
+		}
+	}
+}

@@ -1,0 +1,351 @@
+/* Begin form design 1 files
+   ======================== */
+.adm-c-form {
+	.adm-c-buttonset {
+		position: relative;
+		margin-bottom: 0px;
+
+		.text-sm,
+		.text-md {
+			@extend .fs14__medium;
+			font-weight: normal;
+		}
+
+		label {
+			color: $success;
+			cursor: pointer;
+			margin-right: 0px;
+			margin-bottom: 0;
+
+			&.design2 {
+				color: $black;
+				letter-spacing: normal;
+				font-weight: normal;
+				@extend .fs14;
+				@extend .pf-regular;
+			}
+		}
+
+		input {
+
+			&[type="radio"],
+			&[type="checkbox"] {
+				margin: 0;
+				height: 1px;
+				@include opacity(0);
+				position: absolute;
+				pointer-events: none;
+			}
+
+			&[type="radio"]+span,
+			&[type="checkbox"]+span {
+				overflow: hidden;
+				@include size(20px);
+				text-align: center;
+				display: inline-block;
+				background-color: $white;
+				border: 1px solid $grey_sh1;
+				vertical-align: text-bottom;
+				position: relative;
+				margin-right: 6px;
+				@include transition(all 0.1s ease);
+				@include border-radius(1px);
+			}
+
+			&[type="radio"]+span {
+				top: 1px;
+			}
+
+			&[type="checkbox"]+span {
+				top: 1px;
+				border: 1px solid $grey_sh1;
+				background-color: $grey_sh1;
+			}
+
+			&[type="radio"]+span::after,
+			&[type="checkbox"]+span::after {
+				content: "";
+				display: inline-block;
+				@include opacity(0);
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				@include transition(all 0.1s ease);
+			}
+
+			&[type="radio"]:active+span,
+			&[type="checkbox"]:active+span {
+				border-color: $success;
+			}
+
+			&[type="radio"]:checked+span::after,
+			&[type="checkbox"]:checked+span::after {
+				@include opacity(1);
+			}
+
+			&[type="radio"].error+span,
+			&[type="checkbox"].error+span {
+				border-color: $danger;
+			}
+
+			&[type="radio"],
+			&[type="checkbox"] {
+				+span {
+					@include border-radius(100%);
+
+					&::after {
+						@include border-radius(100%);
+						background-color: $success;
+						border-color: $success;
+					}
+				}
+
+				&:checked+span {
+					border: 1px solid $success;
+					@include transition(all 0.1s ease);
+				}
+			}
+
+			&[type="checkbox"]+span::after {
+				top: 50%;
+				left: 50%;
+				color: $white;
+				@extend .fs11;
+				content: '\f00c';
+				line-height: 19px;
+				text-align: center;
+				@extend .if-regular;
+				@include size(20px);
+				@include opacity(1);
+				transform: translate(-50%, -50%);
+				border: 1px solid $grey_sh1;
+				background-color: $grey_sh1;
+				@extend .if-solid;
+			}
+
+			&[type="checkbox"]:checked+span {
+				border: 1px solid $success;
+				background-color: $success;
+				@include transition(all 0.1s ease);
+				@include box-shadow(0 3px 3px 0 rgba($success, 0.3));
+			}
+
+			&[type="radio"]:checked+span::after {
+				border: 2.5px solid $white;
+				@include box-shadow(0 3px 3px 0 rgba($success, 0.3));
+			}
+
+			&[type="checkbox"]:checked {
+				+span::after {
+					border: 1px solid $success;
+					background-color: $success;
+				}
+			}
+		}
+
+		&.withoutLabel {
+			input {
+
+				&[type="radio"]+span,
+				&[type="checkbox"]+span {
+					margin-right: 0px;
+				}
+			}
+		}
+
+		&.sm {
+			input {
+
+				&[type="radio"]+span,
+				&[type="checkbox"]+span {
+					@include size(22px);
+				}
+
+				&[type="radio"]:checked+span::after {
+					border: 5px solid $white;
+				}
+
+				&[type="checkbox"]+span::after {
+					@extend .fs14;
+					line-height: 21px;
+					@include size(22px);
+				}
+
+				&[type="radio"]:checked+span,
+				&[type="checkbox"]:checked+span {
+					&:after {
+						@extend .fs11;
+					}
+				}
+			}
+
+			label {
+				font-size: 14px !important;
+			}
+		}
+
+		&.darkBorder {
+			input {
+
+				&[type="radio"]+span,
+				&[type="checkbox"]+span {
+					border-color: $grey_sh12;
+				}
+
+				&[type="radio"]:checked+span,
+				&[type="checkbox"]:checked+span {
+					border-color: $success;
+				}
+			}
+		}
+
+		&.lg {
+			input {
+
+				&[type="radio"]+span,
+				&[type="checkbox"]+span {
+					@include size(30px);
+				}
+
+				&[type="radio"]:checked+span::after {
+					border: 5px solid $white;
+				}
+
+				&[type="checkbox"]+span::after {
+					@extend .fs14;
+					line-height: 29px;
+					@include size(30px);
+				}
+			}
+		}
+
+		&.md {
+			input {
+
+				&[type="radio"]+span,
+				&[type="checkbox"]+span {
+					@include size(25px);
+				}
+
+				&[type="radio"]:checked+span::after {
+					border: 5px solid $white;
+				}
+
+				&[type="checkbox"]+span::after {
+					@extend .fs14;
+					line-height: 24px;
+					@include size(25px);
+				}
+			}
+		}
+
+		&.checkBox-design2 {
+			input {
+				&[type="checkbox"]+span::after {
+					content: '';
+					background-color: $white;
+				}
+
+				&[type="checkbox"]:checked+span {
+					background-color: $white;
+
+					&:after {
+						@include size(18px);
+						line-height: 17px;
+						background-color: $success;
+					}
+				}
+			}
+		}
+
+		&.checkBox-design3 {
+			input {
+				&[type="checkbox"]+span::after {
+					background-color: $white;
+				}
+
+				&[type="checkbox"]:checked+span::after {
+					background-color: $success;
+				}
+			}
+		}
+
+		&.checkBox-design4 {
+			label {
+				width: 100%;
+				@extend .adm-u-flexed;
+				@extend .adm-u-justify-end;
+				@extend .adm-u-align-center;
+				@extend .adm-u-flex-direction-row-reverse;
+				color: $black_sh2;
+				@extend .fs16;
+				@extend .pf-regular;
+				font-weight: normal;
+
+				span {
+					top: 0px;
+				}
+			}
+
+			&.fs12 {
+				label {
+					@extend .fs12;
+				}
+			}
+
+			/* &.fs14 {
+				label {
+					@extend .fs14;
+				}
+			} */
+		}
+
+		&.radio-design1 {
+			input {
+				&[type="radio"]+span {
+					background-color: $grey_sh1;
+				}
+			}
+
+			label {
+				@extend .pf-regular;
+			}
+		}
+
+		&.no-shadow {
+			input {
+				&[type="checkbox"]:checked+span {
+					@include box-shadow(none);
+				}
+
+				&[type="radio"]:checked+span::after {
+					@include box-shadow(none);
+				}
+			}
+		}
+
+		&.withborder {
+			input {
+
+				&[type="radio"]+span::after,
+				&[type="checkbox"]+span::after {
+					content: '';
+					background-color: $white;
+					border: 1px solid darken($grey_sh12, 10%);
+				}
+
+				&[type="radio"]:checked+span::after,
+				&[type="checkbox"]:checked+span::after {
+					content: '\f00c';
+					background-color: $success;
+					border: 1px solid $success;
+				}
+			}
+		}
+	}
+}
+
+/* End form design 1 files
+   ======================== */

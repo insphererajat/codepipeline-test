@@ -1,0 +1,376 @@
+/* Begin assets section */
+
+.adm-c-assetsWrap {
+    $assetSelf: &;
+
+    &.design1,
+    &.design2 {
+        #{$assetSelf} {
+            &__list {
+                background-color: $white;
+                @extend .adm-u-radius8;
+                border: 1px solid $white_sh2;
+                position: relative;
+                height: 100%;
+                display: block;
+
+                &-action {
+                    border: 1px solid $grey_sh2;
+                    @include size(30px);
+                    @extend .adm-u-flexed;
+                    @extend .adm-u-align-center;
+                    @extend .adm-u-justify-center;
+                    @extend .adm-u-radius50;
+                    position: absolute;
+                    right: 10px;
+                    bottom: 10px;
+                    background-color: $white;
+                    @include opacity(0);
+                    visibility: hidden;
+                    @include transition(all 0.3s ease);
+                    z-index: 20;
+
+                    .icon {
+                        color: $danger;
+                    }
+                }
+
+                &__image {
+                    border-bottom: 1px solid $grey_sh4;
+                    height: 200px;
+                    @extend .adm-u-flexed;
+                    @extend .adm-u-align-center;
+                    @extend .adm-u-justify-center;
+                    padding: 15px 8px;
+                    position: relative;
+
+                    img {
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+
+                    .video-icon {
+                        display: none;
+                        position: absolute;
+                        color: $white;
+                        @extend .fs40;
+                        @extend .adm-u-cursor-pointer;
+
+                        &:before {
+                            z-index: 20;
+                        }
+
+                        &:after {
+                            content: '';
+                            background-color: rgba($zblack, 0.4);
+                            @include size(40px);
+                            position: absolute;
+                            z-index: 10;
+                            @extend .adm-u-radius50;
+                        }
+                    }
+                }
+
+                &__content {
+                    padding: 14px 16px;
+                    @extend .adm-u-flexed;
+
+                    .assets-label_icon {
+                        border: 1px solid $grey_sh2;
+                        @include size(30px);
+                        @extend .adm-u-flexed;
+                        @extend .adm-u-align-center;
+                        @extend .adm-u-justify-center;
+                        @extend .adm-u-radius50;
+                        margin-right: 10px;
+
+                        em {
+                            color: $success_sh4;
+                        }
+                    }
+
+                    .assets-text {
+                        @include calc(width, '100% - 40px');
+                        color: $black;
+                        @extend .pf-regular;
+                        word-break: break-all;
+                    }
+
+                    &.contentHovered-button {
+                        @include transition(all 0.3s ease);
+                        position: relative;
+
+                        &:before {
+                            content: '';
+                            @include size(100%);
+                            background-color: rgba($white, 0.8);
+                            display: block;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            z-index: 9;
+                            @include opacity(0);
+                            visibility: hidden;
+                            @include transition(all 0.3s ease);
+                        }
+
+                        #{$assetSelf}__list {
+                            &__buttons {
+                                @extend .adm-u-flexed;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                @include translate(-50%, -50%);
+                                z-index: 15;
+                                @include opacity(0);
+                                visibility: hidden;
+                                @include transition(all 0.3s ease);
+    
+                                .button-actions {
+                                    background-color: $white;
+                                    min-width: 100px;
+                                    @extend .adm-u-flexed;
+                                    @extend .adm-u-align-center;
+                                    @extend .adm-u-justify-center;
+                                    @include border-radius(4px);
+                                    height: 34px;
+                                    @include transition(all 0.3s ease);
+    
+                                    &__icon {
+                                        color: $grey_sh12;
+                                        @extend .fs12;
+                                        margin-right: 8px;
+                                    }
+    
+                                    &__text {
+                                        color: $black_sh8;
+                                        @extend .fs14;
+                                        @extend .pf-medium;
+                                    }
+    
+                                    +.button-actions {
+                                        margin-left: 12px;
+                                    }
+    
+                                    &:hover {
+                                        -webkit-box-shadow: 0px 0px 20px 0px rgba(181, 175, 181, 1);
+                                        -moz-box-shadow: 0px 0px 20px 0px rgba(181, 175, 181, 1);
+                                        box-shadow: 0px 0px 20px 0px rgba(181, 175, 181, 1);
+                                    }
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            &:before {
+                                @include opacity(1);
+                                visibility: visible;
+                            }
+
+                            #{$assetSelf}__list {
+                                &__buttons {
+                                    @include opacity(1);
+                                    visibility: visible;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &__additionalAction {
+                    position: absolute;
+                    z-index: 2;
+                    top: 0;
+                    right: 0;
+                    @extend .adm-u-flexed;
+                    @extend .adm-u-flex-direction-column;
+                    @extend .adm-u-align-center;
+                    background: rgba($white, 0.9);
+                    @include border-radius(0px 8px 0px 8px);
+                    width: 30px;
+                    @include opacity(0);
+                    visibility: hidden;
+                    @include transition(all 0.3s ease);
+
+                    #{$assetSelf}__list {
+                        &__additionalAction {
+                            &__button {
+                                background: none;
+                                border: none;
+                                outline: none;
+                                font-size: 12px;
+                                cursor: pointer;
+                                display: block;
+                                padding: 8px;
+                                @include transition(all 0.3s ease);
+
+                                &.edit {
+                                    color: $success_sh4;
+                                }
+                                &.link {
+                                    color: $primary;
+                                }
+                                &.copy {
+                                    color: $black_sh1;
+                                }
+                                &.trash {
+                                    color: $danger;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.media-typeVideo {
+                    #{$assetSelf}__list__image {
+                        .video-icon {
+                            @extend .adm-u-flexed;
+                        }
+                    }
+                }
+
+                &:hover {
+                    #{$assetSelf}__list-action,
+                    #{$assetSelf}__list__additionalAction {
+                        @include opacity(1);
+                        visibility: visible;
+                    }
+                }
+
+                &.hovered-button {
+                    @include transition(all 0.3s ease);
+
+                    &:before {
+                        content: '';
+                        @include size(100%);
+                        background-color: rgba($white, 0.8);
+                        display: block;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        z-index: 9;
+                        @include opacity(0);
+                        visibility: hidden;
+                        @include transition(all 0.3s ease);
+                    }
+
+                    #{$assetSelf}__list {
+                        &-action {
+                            bottom: auto;
+                            top: 10px;
+                        }
+
+                        &__content {
+                            .assets-label_icon {
+                                border: none;
+                            }
+                        }
+
+                        &__buttons {
+                            @extend .adm-u-flexed;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            @include translate(-50%, -50%);
+                            z-index: 15;
+                            @include opacity(0);
+                            visibility: hidden;
+                            @include transition(all 0.3s ease);
+
+                            .button-actions {
+                                background-color: $white;
+                                min-width: 100px;
+                                @extend .adm-u-flexed;
+                                @extend .adm-u-align-center;
+                                @extend .adm-u-justify-center;
+                                @include border-radius(4px);
+                                height: 34px;
+                                @include transition(all 0.3s ease);
+
+                                &__icon {
+                                    color: $grey_sh12;
+                                    @extend .fs12;
+                                    margin-right: 8px;
+                                }
+
+                                &__text {
+                                    color: $black_sh8;
+                                    @extend .fs14;
+                                    @extend .pf-medium;
+                                }
+
+                                +.button-actions {
+                                    margin-left: 12px;
+                                }
+
+                                &:hover {
+                                    -webkit-box-shadow: 0px 0px 20px 0px rgba(181, 175, 181, 1);
+                                    -moz-box-shadow: 0px 0px 20px 0px rgba(181, 175, 181, 1);
+                                    box-shadow: 0px 0px 20px 0px rgba(181, 175, 181, 1);
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        &:before {
+                            @include opacity(1);
+                            visibility: visible;
+                        }
+
+                        #{$assetSelf}__list {
+                            &__image {
+                                @include opacity(0.8);
+                            }
+
+                            &__buttons {
+                                @include opacity(1);
+                                visibility: visible;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.design2 {
+        #{$assetSelf} {
+            &__list {
+                &__image {
+                    padding: 0px;
+                }
+
+                &-action {
+                    &.checkIcon {
+                        bottom: auto;
+                        top: 10px;
+
+                        .icon {
+                            color: $primary;
+                        }
+                    }
+                }
+
+                &.checked {
+                    #{$assetSelf} {
+                        &__list-action {
+                            @include opacity(1);
+                            visibility: visible;
+
+                            &.checkIcon {
+                                background-color: $success;
+
+                                .icon {
+                                    color: $white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* End assets section */

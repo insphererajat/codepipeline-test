@@ -1,0 +1,51 @@
+.adm-c-sectionHeader {
+    $sectionHeader: &;
+
+
+    &.design3 {
+        #{$sectionHeader} {
+            &__container {
+                margin-bottom: 15px;
+                background-color: $white;
+                border-bottom: none;
+                padding: 12px;
+                @extend .adm-u-flex-direction-column;
+                -webkit-align-items: flex-start !important;
+                -moz-align-items: flex-start !important;
+                -ms-align-items: flex-start !important;
+                align-items: flex-start !important;
+            }
+
+
+            &__action {
+                .icon {
+                    margin-right: 5px;
+                }
+
+                &-set {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+
+
+    @include responsive(xs) {
+        &.design3 {
+            #{$sectionHeader} {
+                &__container {
+                    @include flex-direction(row, horizontal);
+                    -webkit-align-items: center !important;
+                    -moz-align-items: center !important;
+                    -ms-align-items: center !important;
+                    align-items: center !important;
+                }
+
+                &__action-set {
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
+}

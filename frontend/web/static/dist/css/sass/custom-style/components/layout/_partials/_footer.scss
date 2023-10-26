@@ -1,0 +1,81 @@
+.c-f-footer { 
+     &__wrapper {
+        &-top {
+            background: $black none repeat scroll 0 0;
+            padding: 15px;
+            &-item {
+                color: lighten($grey_sh7, 20%);
+                @extend .pf-regular;
+                @extend .fs14;
+            }
+        }
+        &-bottom {
+            background: darken($black, 8%);
+            padding: 15px;
+
+            &-item {
+                color: lighten($grey_sh7, 20%);
+                @extend .pf-regular;
+                @extend .fs14;
+            }
+        }
+     }
+
+    @include responsive(xs) {
+        @include respond-to(md) {
+                
+        }
+    }
+} 
+
+.c-f-info {
+    background: lighten($grey_sh7, 35%);
+    padding: 30px;
+
+    &__wrapper {
+        @extend .u-flexed;
+        @extend .u-justify-around;
+        @extend .u-align-center;
+
+        &-item {
+            @extend .u-flexed;
+            @extend .u-flex-direction-column; 
+            @extend .u-align-center; 
+            &-icon {
+                margin-bottom: 10px;
+                width: 100px;
+                height: 100px;
+                background: $white none repeat scroll 0 0;
+                @extend .u-radius100;
+                @extend .u-flexed;
+                @extend .u-justify-center;
+                @extend .u-align-center;
+                img {
+                    height: 35px;
+                    width: auto;
+                }
+            }
+            &-lable {
+                color: $zblack;
+                @extend .fs16;
+                @extend .pf-medium;
+            }
+            &-count {
+                color: $white;
+                background: $black;
+                padding: 0 5px; 
+                min-width: 160px;
+                text-align: center;
+                @extend .fs16;
+                @extend .pf-medium;
+
+                &.clr1 {
+                    background: $theme_color;
+                }
+                &.clr2 {
+                    background: $theme_color3;
+                }
+            }
+        }
+    }
+}

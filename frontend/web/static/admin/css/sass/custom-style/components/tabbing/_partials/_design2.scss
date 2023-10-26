@@ -1,0 +1,28 @@
+.adm-c-tabbing {
+    $subTabbing: &;
+
+    &.design2 {
+        background: $white none repeat scroll 0 0;
+        padding: 20px;
+
+        #{$subTabbing} {
+            &__nav {
+                &__link {
+                    border-bottom: none !important;
+                    padding: 13px 5px;
+
+                    &.active,
+                    &:hover {
+                        color: $white !important;
+                        background-color: $warning !important;
+                        border-bottom: none !important;
+                    }
+                }
+            }
+        }
+
+        .scrtabs-tab-container {
+            background: $white_sh2 none repeat scroll 0 0;
+        }
+    }
+}

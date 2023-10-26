@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/hpslsa
+hooks:
+  ApplicationStop:
+    - location: miscellaneous/codedeploy/ApplicationStop
+      timeout: 300
+      runas: root
+  BeforeInstall:
+    - location: miscellaneous/codedeploy/BeforeInstall
+      timeout: 600
+      runas: root
+  AfterInstall:
+    - location: miscellaneous/codedeploy/AfterInstall
+      timeout: 600
+      runas: root
+  ApplicationStart:
+    - location: miscellaneous/codedeploy/ApplicationStart
+      timeout: 300
+      runas: root

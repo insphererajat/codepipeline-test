@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+echo "Syncing static files to s3 bucket"
+echo $BITBUCKET_BRANCH
+echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+
+s3_buckets=(hpslsa-static)
+
+for bucket in ${s3_buckets[*]}
+do
+    #aws s3 sync backend/web/static/dist/pdf/ s3://$bucket/static/dist/pdf --quiet --delete --cache-control max-age=604800
+    #aws s3 sync frontend/web/static/ s3://$s3_buckets/frontend/static --quiet --delete --cache-control max-age=60480
+    #aws s3 sync backend/web/static/ s3://$s3_buckets/backend/static --quiet --delete --cache-control max-age=60480
+    #aws s3 sync frontend/web/static/dist/deploy/ s3://$s3_buckets/frontend/static/dist/deploy --quiet --delete --cache-control max-age=60480
+    aws s3 sync backend/web/static/dist/deploy/ s3://$s3_buckets/backend/static/dist/deploy --quiet --delete --cache-control max-age=60480
+    #aws s3 sync frontend/web/static/ s3://$s3_buckets/frontend/static --quiet --delete --cache-control max-age=60480
+     
+done

@@ -1,0 +1,177 @@
+/* Begin counters design elements files
+   ======================== */
+
+   .adm-c-counter__wrapper {
+    $counters: &;  
+    margin: 0 -15px;
+    @extend .adm-u-flex-wrap;
+    @extend .adm-u-flexed;
+
+    &-item {
+        @include calc(width, '100% / 1 - 30px'); 
+        background: $white none repeat scroll 0 0;
+        margin: 0 15px 30px 15px;
+        position: relative;
+        @extend .adm-u-flexed;
+    }
+
+    &.design1 {
+        #{$counters}-item {
+            height: 300px;
+            @extend .adm-u-flex-direction-column;
+            @extend .adm-u-align-center;
+            @extend .adm-u-justify-center; 
+            
+            &-content {
+                text-align: center;
+                position: relative;
+                @extend .adm-u-flex-direction-column;
+                @extend .adm-u-align-center;
+                @extend .adm-u-justify-center;
+                @include transition(all 0.3s ease-in); 
+            }
+            &-icon {
+                margin: 0 auto 15px auto;
+                background: lighten($theme-color-primary, 40%);
+                color: $theme-color-primary;
+                @include size(60px);
+                @extend .adm-u-radius100;
+                @extend .adm-u-flexed;
+                @extend .adm-u-justify-center;
+                @extend .adm-u-align-center;
+            }
+            &-count {
+                @extend .fs35;
+                @extend .pf-black;
+            }
+            &-caption {
+                @extend .fs14;
+                @extend .pf-regular;
+            }
+            &-status {
+                position: absolute;
+                bottom: -45px;
+                left: 50%;
+                @include translateX(-50%);
+                @extend .fs20;
+                @extend .pf-black; 
+                &.profit {
+                    color: $success_sh4; 
+                }
+                &.loss {
+                    color: $danger; 
+                } 
+            }
+            &-info {
+                position: absolute; 
+                color: $grey_sh12; 
+                &.lt-side {
+                    top: 30px;
+                    left: 30px; 
+                }
+                &.lt-bt-side {
+                    bottom: 30px;
+                    left: 30px; 
+                }
+                &.rt-side {
+                    top: 30px;
+                    right: 30px; 
+                }
+                &.rt-bt-side { 
+                    bottom: 30px;
+                    right: 30px; 
+                }
+            }
+            &-action { 
+                position: absolute;
+                top: -20px;
+                right: -20px; 
+                @include transition(all 0.3s ease-in); 
+                &-link {
+                    background: $white none repeat scroll 0 0;
+                    color: $theme-color-primary;
+                    visibility: hidden;
+                    display: none;
+                    @include opacity(0);
+                    @include size(40px);
+                    @extend .adm-u-radius100; 
+                    @extend .adm-u-justify-center;
+                    @extend .adm-u-align-center;  
+                    @include transition(all 0.3s ease-in);
+                    -webkit-box-shadow: 0px 0px 47px 0px rgba(0,0,0,0.2);
+                    -moz-box-shadow: 0px 0px 47px 0px rgba(0,0,0,0.2);
+                    box-shadow: 0px 0px 47px 0px rgba(0,0,0,0.2);
+                }
+            }
+            &.u-blue {
+                .adm-c-counter__wrapper-item-icon {
+                    background: lighten($blue, 40%);
+                    color: $blue;
+                }
+            }
+            &.u-perple {
+                .adm-c-counter__wrapper-item-icon {
+                    background: lighten($perple, 40%);
+                    color: $perple;
+                }
+            }
+            &.u-yellow {
+                .adm-c-counter__wrapper-item-icon {
+                    background: lighten($yellow, 40%);
+                    color: $yellow;
+                }
+            }
+            &.u-green {
+                .adm-c-counter__wrapper-item-icon {
+                    background: lighten($green, 40%);
+                    color: $green;
+                }
+            }
+            &:hover {
+                    -webkit-box-shadow: 0px 0px 47px 0px rgba(0,0,0,0.1);
+                    -moz-box-shadow: 0px 0px 47px 0px rgba(0,0,0,0.1);
+                    box-shadow: 0px 0px 47px 0px rgba(0,0,0,0.1);
+                    @include transition(all 0.3s ease-in); 
+                .adm-c-counter__wrapper-item-action-link {
+                    visibility: visible;
+                    @extend .adm-u-flexed;
+                    @include opacity(1);
+                    @include transition(all 0.3s ease-in);
+                } 
+            }
+        }
+    }
+
+    @include responsive(xs) {
+        .adm-c-counter__wrapper {
+            &-item { 
+                @include calc(width, '100% / 2 - 30px');  
+            } 
+        }
+        
+        @include respond-to(cmd) {
+            .adm-c-counter__wrapper {
+                &-item { 
+                    @include calc(width, '100% / 3 - 30px');  
+                } 
+            }
+        }
+        @include respond-to(lg) { 
+            .adm-c-counter__wrapper {
+                &-item { 
+                    @include calc(width, '100% / 3 - 30px');  
+                } 
+            }
+        }
+        @include respond-to(cminlg) { 
+            .adm-c-counter__wrapper {
+                &-item { 
+                    @include calc(width, '100% / 4 - 30px');   
+                } 
+            }
+        }
+    } 
+
+} 
+/* Begin counters design elements files
+   ======================== */

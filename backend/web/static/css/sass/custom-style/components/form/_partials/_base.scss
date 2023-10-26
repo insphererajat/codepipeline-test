@@ -1,0 +1,508 @@
+.adm-c-form {
+    $self: &;
+
+    .cop-form {
+        &--container {
+            margin-bottom: 15px;
+
+            &-field {
+                border: 1px solid $grey_sh1;
+                padding: 4px 16px;
+                height: 56px;
+                color: $grey;
+                outline: none;
+                background-color: $white none repeat scroll 0 0 !important;
+                @extend .ls025;
+                width: 100%;
+
+                @include placeholder {
+                    color: $grey_sh12;
+                    font-family: "RobotoRegular";
+                    font-size: 14px;
+                    opacity: 1;
+                }
+
+                &.adm-u-fieldHeight34 {
+                    height: 34px;
+                }
+
+                &.adm-u-fieldHeight38 {
+                    height: 38px;
+                }
+
+                &.adm-u-fieldHeight40 {
+                    height: 40px;
+                }
+
+                &.adm-u-fieldHeight48 {
+                    height: 48px;
+                }
+
+                &.adm-u-fieldHeight56 {
+                    height: 56px;
+                }
+
+                &.adm-u-fieldHeight80 {
+                    height: 80px;
+                }
+
+                &:focus {
+                    border-color: $warning;
+                }
+
+                &.disabled,
+                &:disabled {
+                    cursor: not-allowed;
+
+                    @include placeholder {
+                        color: $black;
+                        font-family: "RobotoRegular";
+                        font-size: 14px;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &.withIcon {
+                &-lt {
+                    position: relative;
+
+                    .icon {
+                        position: absolute;
+                        top: 50%;
+                        @include translate(0, -50%);
+                        left: 20px;
+                    }
+
+                    .cop-form--container-field {
+                        padding: 4px 16px 4px 45px;
+                    }
+                }
+
+                &-rt {
+                    position: relative;
+
+                    .icon {
+                        position: absolute;
+                        top: 50%;
+                        @include translate(0, -50%);
+                        right: 20px;
+                        @include transition(all 0.3s ease);
+
+                        &:hover {
+                            color: $warning;
+                        }
+                    }
+
+                    .cop-form--container-field {
+                        padding: 4px 45px 4px 16px;
+                    }
+                }
+            }
+
+            .cop-form__uploader {
+                max-width: 270px;
+                width: 100%;
+                height: 150px;
+                @extend .adm-u-radius8;
+                border: 2px dashed $grey_sh1;
+                @extend .adm-u-flexed;
+                @extend .adm-u-align-center;
+                @extend .adm-u-justify-center;
+                @extend .adm-u-flex-direction-column;
+                position: relative;
+
+
+                &--btn {
+                    color: $white;
+                    border: 0px none;
+                    line-height: 30px;
+                    text-align: center;
+                    @include size(30px);
+                    @extend .adm-u-radius50;
+                    margin-bottom: 16px;
+                    background-color: $success;
+                    @include box-shadow(0 2px 2px 0 rgba($success, 0.3));
+                }
+
+                &--text {
+                    margin-bottom: 0;
+                    color: $grey_sh1;
+                    @extend .pf-medium;
+                    @extend .fs14;
+                    text-align: center;
+                    padding: 0 12px;
+
+                    >span {
+                        color: $success;
+                    }
+                }
+
+                &--loading {
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    background-color: $white;
+
+                    img {
+                        top: 50%;
+                        left: 50%;
+                        display: block;
+                        position: absolute;
+                        @include size(50px);
+                        @extend .adm-u-radius50;
+                        @include transform(translate(-50%, -50%));
+                    }
+                }
+
+                &--placeholder {
+                    padding: 4px;
+                    display: block;
+                    overflow: hidden;
+                    position: absolute;
+                    @extend .adm-u-radius50;
+                    @include size(110px);
+                    background-color: $white;
+                    border: 1px solid $grey_sh12;
+                    @extend .vertical-align-c;
+
+                    img {
+                        @include size(100px);
+                    }
+                }
+
+                &__actions {
+                    position: absolute;
+                    z-index: 2;
+                    width: 100%;
+                    bottom: 20px;
+                    @extend .adm-u-flexed;
+                    @extend .adm-u-justify-btw;
+
+                    &.align-right {
+                        @extend .adm-u-justify-end;
+                    }
+
+                    &--buttons {
+                        background: rgba($white, 0.6);
+                        border: 2px dashed $grey_sh1;
+                        border-right: none;
+                        @include border-radius(8px 0px 0 8px);
+                        cursor: pointer;
+                        outline: none;
+                        padding: 2px 8px;
+
+                        .fa {
+                            font-size: 12px;
+                        }
+
+                        &.left {
+                            border-left: none;
+                            border-right: 2px dashed $grey_sh1;
+                            @include border-radius(0px 8px 8px 0px);
+                        }
+                    }
+
+                }
+
+                &__additionalAction {
+                    position: absolute;
+                    z-index: 2;
+                    top: 0;
+                    right: 0;
+                    @extend .adm-u-flexed;
+                    @extend .adm-u-flex-direction-column;
+                    @extend .adm-u-align-center;
+                    background: rgba($white, 0.9);
+                    @include border-radius(0px 8px 0px 8px);
+                    width: 30px;
+
+                    &--link {
+                        font-size: 12px;
+                        color: $primary;
+                        cursor: pointer;
+                        display: block;
+                        padding: 8px;
+                        @include transition(all 0.3s ease);
+                    }
+
+                    &--trash {
+                        background: none;
+                        border: none;
+                        outline: none;
+                        font-size: 12px;
+                        color: $danger;
+                        cursor: pointer;
+                        display: block;
+                        padding: 8px;
+                        @include transition(all 0.3s ease);
+                    }
+                }
+
+                .trash {
+                    top: 10px;
+                    z-index: 2;
+                    right: 10px;
+                    @extend .adm-u-cursor-pointer;
+                    border: 0px none;
+                    color: $black_sh3;
+                    position: absolute;
+                    background-color: $white;
+                }
+
+                &.design2 {
+                    .trash {
+                        background-color: transparent;
+                        color: $black_sh5;
+                        @include transition(all 0.3s ease);
+
+                        &:hover {
+                            color: $danger;
+                        }
+                    }
+
+                    .cop-form__uploader--placeholder {
+                        padding: 0px;
+                        @include size(100%);
+                        border: none;
+                        @extend .adm-u-radius8;
+                        @extend .adm-u-flexed;
+                        @extend .adm-u-align-center;
+                        @extend .adm-u-justify-center;
+
+                        img {
+                            @include size(100%);
+                            object-fit: cover;
+                            object-position: center;
+                            border: none;
+                            @include border-radius(8px !important);
+                        }
+
+                        &-icon {
+                            width: auto;
+
+                            img {
+                                object-fit: contain;
+                                @include size(150px);
+                            }
+                        }
+                    }
+
+                    &--widthAuto {
+                        max-width: 100%;
+                        width: 100%;
+                        height: 180px;
+                    }
+                }
+            }
+        }
+
+        &--help-block {
+            display: none;
+            @extend .fs13;
+            @extend .pf-regular;
+
+            &.visible {
+                display: block;
+            }
+        }
+
+        &.has-error {
+            .cop-form--container {
+                &-field {
+                    color: $danger;
+                    border-color: $danger;
+
+                    @include placeholder {
+                        color: $danger;
+                    }
+
+                    &-icon,
+                    .adm-u-icon,
+                    .icon {
+                        color: $danger;
+                    }
+                }
+
+                &-icon,
+                &withIcon,
+                .adm-u-icon,
+                .icon {
+                    color: $danger;
+                }
+
+                .help-block {
+                    display: block;
+                    color: $danger;
+                }
+            }
+
+            .cop-form--help-block {
+                display: block;
+                color: $danger;
+            }
+
+            .head-wrapper__title-label,
+            .head-wrapper__title-subLabel {
+                color: $danger !important;
+            }
+        }
+
+        &.has-success {
+            .cop-form--container {
+                &-field {
+                    color: $success;
+                    border-color: $success;
+
+                    @include placeholder {
+                        color: $success;
+                    }
+
+                    &-icon,
+                    .adm-u-icon,
+                    .icon {
+                        color: $success;
+                    }
+                }
+
+                &-icon,
+                .adm-u-icon {
+                    color: $success;
+                }
+
+                .help-block {
+                    color: $success;
+                }
+            }
+
+            .cop-form--help-block {
+                display: block;
+                color: $success;
+            }
+
+            .head-wrapper__title-label,
+            .head-wrapper__title-subLabel {
+                color: $success !important;
+            }
+        }
+    }
+
+    .owl-carousel {
+        .owl-nav {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            @include translate(0, -50%);
+
+            .owl-prev {
+                position: absolute;
+                left: 0;
+                background-color: $white;
+                @extend .adm-u-radius50;
+                @include size(35px);
+                top: 50%;
+                @include translate(0, -50%);
+                outline: none !important;
+
+                span {
+                    font-size: 35px;
+                    line-height: 20px;
+                }
+
+                &.disabled {
+                    @include opacity(0.7);
+                }
+            }
+
+            .owl-next {
+                position: absolute;
+                right: 0;
+                background-color: $white;
+                @extend .adm-u-radius50;
+                @include size(35px);
+                top: 50%;
+                @include translate(0, -50%);
+                outline: none !important;
+
+                span {
+                    font-size: 35px;
+                    line-height: 20px;
+                }
+
+                &.disabled {
+                    @include opacity(0.7);
+                }
+            }
+        }
+    }
+
+    &.adm-u-fieldShadow {
+        .cop-form {
+            &--container {
+                &-field {
+                    @include box-shadow(0 3px 3px 0 rgba(221, 221, 221, 0.5) !important);
+                }
+            }
+        }
+    }
+
+    &.adm-u-fieldBorderClr2 {
+        .cop-form--container {
+            &.withIcon {
+
+                &-lt,
+                &-rt {
+                    color: $grey_sh12;
+                }
+            }
+
+            &-field {
+                border-color: $grey_sh2;
+
+                &:focus {
+                    border-color: $warning;
+                }
+            }
+        }
+    }
+
+    &.adm-u-fieldRadius4 {
+        .cop-form {
+            &--container {
+                &-field {
+                    @extend .adm-u-radius4;
+
+                    &:focus {
+                        @extend .adm-u-radius4;
+                    }
+                }
+            }
+        }
+    }
+
+    &.adm-u-fieldRadius8 {
+        .cop-form {
+            &--container {
+                &-field {
+                    @extend .adm-u-radius8;
+
+                    &:focus {
+                        @extend .adm-u-radius8;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    background-color: $white none repeat scroll 0 0 !important;
+}

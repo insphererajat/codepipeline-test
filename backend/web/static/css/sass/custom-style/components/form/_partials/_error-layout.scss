@@ -1,0 +1,130 @@
+.adm-c-error {
+    $errorMain: &;
+    position: relative;
+    width: 100%;
+    min-height: 435px;
+    height: 100%;
+    background: $white none repeat scroll 0 0;
+    @extend .adm-u-flexed;
+    @extend .adm-u-align-center;
+    &__type {
+        position: absolute;
+        top: 0;
+        left: 50px;
+        @extend .pf-bold;
+        font-size: 90px;
+        color: #fef3e7;
+        z-index: 1;
+        &:after { 
+            opacity: 0.5;
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 99;
+            top: 0;
+            left: 0;
+            background: rgba(255,255,255,1);
+            background: -moz-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0.01) 100%);
+            background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(0%, rgba(255,255,255,1)), color-stop(0%, rgba(255,255,255,1)), color-stop(50%, rgba(255,255,255,0.01)), color-stop(100%, rgba(255,255,255,0.01)));
+            background: -webkit-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0.01) 100%);
+            background: -o-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0.01) 100%);
+            background: -ms-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0.01) 100%);
+            background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0.01) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+        }
+    }
+    &__image {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 9;
+    }
+    &__content {
+        padding-left: 25px;
+        z-index: 99;
+
+        &-title {
+            font-size: 26px;
+            @extend .pf-medium;
+            color: #303030;
+            margin-bottom: 10px;
+        }
+        &-main {
+            margin-bottom: 30px;
+            .content {
+                font-size: 15px;
+                @extend .pf-regular;
+                color: #303030;
+            }
+        }
+        &-action {
+            min-width: 200px;
+            padding: 12px 30px;
+            font-size: 16px;
+            @extend .pf-regular;
+            color: $white;
+            background: #00b7b2 none repeat scroll 0 0;
+            @include transition(0.3s all ease);
+            @extend .adm-u-radius4;
+            @extend .adm-u-inline-flexed;
+            @extend .adm-u-justify-center;
+            @extend .adm-u-align-center;
+
+            &:hover {
+                color: $white;
+                background: #01a29e none repeat scroll 0 0;
+            }
+        }
+    }
+
+    @include responsive(xs) {
+        #{$errorMain} {
+            &__type {
+                font-size: 220px;
+            } 
+        }
+        @include respond-to(sm) {
+              
+        }
+        @include respond-to(lg) {
+            min-height: 992px; 
+            #{$errorMain} { 
+                &__type {
+                    font-size: 460px;
+                }
+                &__content {
+                    padding-left: 100px;
+                    &-title {
+                        font-size: 50px;
+                    }
+                    &-main { 
+                        .content {
+                            font-size: 18px; 
+                        }
+                    }
+                }
+            }
+        }
+        @include respond-to(clg) {
+            min-height: 1024px; 
+            #{$errorMain} { 
+                &__type {
+                    font-size: 560px;
+                }
+                &__content {
+                    padding-left: 100px;
+                    &-title {
+                        font-size: 55px;
+                    }
+                    &-main { 
+                        .content {
+                            font-size: 18px; 
+                        }
+                    }
+                }
+            }   
+        }
+    }
+}

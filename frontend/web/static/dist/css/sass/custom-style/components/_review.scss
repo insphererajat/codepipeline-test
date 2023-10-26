@@ -1,0 +1,28 @@
+
+.c-tankssection {
+	padding:100px 0px;
+	width:100%;
+	text-align:center;
+	figure {
+		width:100%;
+		text-align:center;
+	 img.successimg {
+		max-width:200px;
+		height:auto; 
+		display:inline-block;
+	 }
+	}
+	& .msg__theme {
+	width:100%;
+	text-align:center;	
+	}
+	
+	& .msg__theme__content {
+	 h2 {
+		 color:green;
+		 text-transform:uppercase; 
+	 }
+	}
+}
+
+

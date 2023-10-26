@@ -1,0 +1,139 @@
+#!/bin/bash
+
+currentDir="$(dirname "$0")"
+COMPOSER_CMD=$(which composer)
+CONF_DIR="$currentDir/conf"
+HTTPD_DIR="/etc/httpd"
+DEPLOYMENT_GROUP_NAME_ENV=$(echo "$DEPLOYMENT_GROUP_NAME" | cut -d- -f1)
+
+#############################
+#Install Apache(httpd24)
+#############################
+yum install -y mod_ssl.x86_64
+
+#############################
+#Install php (7.0)
+#############################
+sudo amazon-linux-extras enable php8.0
+
+yum clean metadata
+yum install -y php-fpm php-mbstring php-gd php-cli php-mcrypt php-opcache php-pdo php-mysqlnd php-zip php-xml
+
+yum install -y git --nogpgcheck
+
+#yum remove -y php70
+#yum install -y php70-fpm php70-mbstring php70-gd php70-cli php70-mcrypt php70-opcache php70-pdo php70-mysqlnd php70-zip
+#yum install -y git --nogpgcheck
+
+
+#############################
+#Install composer
+#############################
+if [[ "" == "$COMPOSER_CMD" ]]
+then
+    curl -sS https://getcomposer.org/installer | sudo php
+    mv composer.phar /usr/local/bin/composer
+    ln -s /usr/local/bin/composer /usr/bin/composer
+fi
+
+#####
+#copy github token
+#####
+#mkdir -p ~/.composer
+#cp $currentDir/conf/composer/auth.json ~/.composer/auth.json
+
+
+##################################################################
+#############################
+#Create folder for index.php#
+#############################
+if [ "$DEPLOYMENT_GROUP_NAME" == "Live" ]
+then
+    mkdir /var/www/html/live
+elif [ "$DEPLOYMENT_GROUP_NAME" == "uat" ]
+then
+    mkdir /var/www/html/uat
+elif [ "$DEPLOYMENT_GROUP_NAME" == "uksssc" ]
+then
+    mkdir /var/www/html/uksssc
+fi
+
+########
+#Apache#
+########
+cp -f $CONF_DIR/apache/httpd.conf $HTTPD_DIR/conf/httpd.conf
+rsync -azq $CONF_DIR/apache/conf.modules.d/ /etc/httpd/conf.modules.d/
+if [ "$DEPLOYMENT_GROUP_NAME" == "Live" ]
+then
+    cp -f $CONF_DIR/apache/index-live.php /var/www/html/live/index.php
+    cp -f $CONF_DIR/apache/.htaccess /var/www/html/live/.htaccess
+    cp -f $CONF_DIR/apache/health-check.php /var/www/html/live/health-check.php
+
+elif [ "$DEPLOYMENT_GROUP_NAME" == "uat" ]
+then
+    cp -f $CONF_DIR/apache/index-uat.php /var/www/html/uat/index.php
+    cp -f $CONF_DIR/apache/.htaccess /var/www/html/uat/.htaccess
+    cp -f $CONF_DIR/apache/health-check.php /var/www/html/uat/health-check.php
+
+elif [ "$DEPLOYMENT_GROUP_NAME" == "uksssc" ]
+then
+    cp -f $CONF_DIR/apache/index-live.php /var/www/html/uksssc/index-uksssc.php
+    cp -f $CONF_DIR/apache/.htaccess /var/www/html/uksssc/.htaccess
+    cp -f $CONF_DIR/apache/health-check.php /var/www/html/uksssc/health-check.php
+
+fi
+
+
+#Copy conf.d & conf.modules.d files
+if [ "$DEPLOYMENT_GROUP_NAME" == "Live" ]
+then
+    rsync -azq $CONF_DIR/apache/conf.d/ /etc/httpd/conf.d/
+elif [ "$DEPLOYMENT_GROUP_NAME" == "uat" ]
+then
+    rsync -azq $CONF_DIR/apache/conf-stag.d/ /etc/httpd/conf.d/
+
+elif [ "$DEPLOYMENT_GROUP_NAME" == "uksssc" ]
+then
+    rsync -azq $CONF_DIR/apache/conf-uksssc.d/ /etc/httpd/conf.d/
+fi
+
+##################################################################
+
+###########
+#PHP
+###########
+cp -f $CONF_DIR/php/php.ini /etc/php.ini
+
+##################################################################
+
+###########
+#PHP-FPM
+###########
+rm -rf /etc/php-fpm.d/www.conf
+cp -f $CONF_DIR/php-fpm/www.conf /etc/php-fpm.d/www.conf
+
+##################################################################
+
+#####################################
+# INSTALL SUPERVISORD FOR SQS WORKER
+#####################################
+if [ ! -f /usr/local/bin/supervisord ]; then
+    easy_install supervisor
+    mkdir -p /etc/supervisord.d/
+fi
+
+cp $currentDir/conf/supervisord/supervisord /etc/rc.d/init.d/supervisord
+chmod +x /etc/rc.d/init.d/supervisord
+
+cp -f $CONF_DIR/supervisord/supervisord.conf /etc/supervisord.conf
+
+cp -f /usr/bin/supervisord     /usr/local/bin/
+cp -f /usr/bin/supervisorctl  /usr/local/bin/
+
+SUPERVISOR_CONF_FILE="hpslsa_workers.conf"
+
+cp -f $CONF_DIR/supervisord/LIVE/$SUPERVISOR_CONF_FILE /etc/supervisord.d/$SUPERVISOR_CONF_FILE
+
+###########################################
+#  END INSTALL SUPERVISORD FOR SQS WORKER
+############################################

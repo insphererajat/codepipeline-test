@@ -1,0 +1,47 @@
+.adm-c-drawer {
+    $drawerSelf: &;
+
+    &.design1 {
+
+        #{$drawerSelf} {
+            &__overlay {
+                position: fixed;
+                @include size(100%);
+                left: 0;
+                top: 0;
+                background-color: rgba($zblack, 0.4);
+                z-index: 20;
+                display: none;
+            }
+
+            &__container {
+                position: fixed;
+                max-width: 320px;
+                height: 100vh;
+                right: 0;
+                top: 0;
+                background-color: $white;
+                z-index: 21;
+                width: 100%;
+                @include translateX(100%);
+                @include transition(all 0.3s ease);
+            }
+
+            &__content {
+                padding: 0 15px;
+            }
+        }
+
+        &.active {
+            #{$drawerSelf} {
+                &__container {
+                    @include translateX(0);
+                }
+
+                &__overlay {
+                    display: block;
+                }
+            }
+        }
+    }
+}

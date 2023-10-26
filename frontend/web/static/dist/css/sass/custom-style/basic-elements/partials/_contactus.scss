@@ -1,0 +1,68 @@
+.c-contactwrap  {
+    width:100%;
+	padding-top:50px;
+	&__heading{
+		@include font-size(35);
+		line-height:40px;
+		color:$zblack; 
+		@extend .pf-medium;
+		margin-bottom:40px;
+		span {
+		@include font-size(25); 
+		display:block;  
+		@extend .pf-light;
+		}
+	}
+	&__section {
+		width:100%;
+		margin-bottom:20px;
+		&-head {
+			position:relative;
+			color:$theme_color;
+			@include font-size(25); 
+			@extend .pf-bold;
+			padding-bottom:6px;
+			margin-bottom:20px;
+			&:after {
+				content:"";
+				position:absolute;
+				bottom:0;
+				width:80px;
+				height:3px;
+				background:$theme_color; 
+				left:0;
+			}
+		}
+		&-content {
+			@include font-size(18);
+			line-height:30px;  
+			@extend .pf-regular;
+			a{
+				color:$zblack; 
+				&:hover {
+					color:$theme_color; 
+				}
+			}
+		}
+		
+	}
+}
+
+.c-contactmap {
+        position: relative;
+        padding-top: 30px;
+        overflow: hidden;
+        height: 400px;
+        margin-top: 47px;
+
+        iframe,
+        object,
+        embed {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+    }

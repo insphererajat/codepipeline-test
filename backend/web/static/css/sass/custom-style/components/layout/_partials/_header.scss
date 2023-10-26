@@ -1,0 +1,224 @@
+.adm-c-header {
+    &__wrapper {
+        $headerWrapper: &;
+
+        &.design1 {
+            border-bottom: 1px solid $grey_sh2;
+            background-color: $white;
+            height: 50px;
+        }
+
+        &.design2 {
+            background: $white_sh1 none repeat scroll 0 0;
+            padding: 10px 20px;
+            @extend .adm-u-flexed;
+            @extend .adm-u-align-center;
+            @extend .adm-u-justify-btw;
+
+            #{$headerWrapper} {
+                &__responsiveLogo {
+                    display: block;
+
+                    img {
+                        height: 70px;
+                    }
+                }
+
+                &__brandingName {
+                    color: $black_sh8;
+                    display: none;
+                    @extend .fs18__medium;
+                }
+
+                &__rs {
+                    @extend .adm-u-flexed;
+                    @extend .adm-u-align-center;
+                }
+
+                &__hamburgerIcon {
+                    display: block;
+                }
+
+                &__home,
+                &__notify,
+                &__hamburgerIcon {
+                    margin-right: 20px;
+
+                    .icon {
+                        color: $black_sh8;
+                        @include transition(all 0.3s ease);
+                    }
+
+                    .dropdown-toggle {
+                        &:after {
+                            display: none;
+                        }
+                    }
+
+                    &:hover {
+                        .icon {
+                            color: $warning;
+                        }
+                    }
+
+                    .d-notificationWrapper {
+                        min-width: 280px;
+
+                        &__header {
+                            border-bottom: 1px solid #e9ecef;
+                            padding: 10px 15px;
+                            @extend .adm-u-flexed;
+                            @extend .adm-u-align-center;
+                            @extend .adm-u-justify-btw;
+
+                            &__content {
+                                @extend .adm-u-flexed;
+                                @extend .adm-u-align-center;
+
+                                &-icon {
+                                    color: $black_sh8;
+                                    margin-right: 8px;
+                                }
+
+                                &-text {
+                                    color: $black_sh8;
+                                    @extend .fs16__medium;
+                                }
+                            }
+
+                            &__link {
+                                background: $warning none repeat scroll 0 0;
+                                color: $white;
+                                @extend .fs13__medium;
+                                padding: 5px 12px;
+                                @extend .adm-u-radius25;
+                                @include box-shadow((0 1px 5px 0 rgba($zblack, 0.2), 0 3px 1px -2px rgba($zblack, 0.12), 0 2px 2px 0 rgba($zblack, 0.14)));
+
+                                span {
+                                    margin-right: 4px;
+                                }
+                            }
+                        }
+
+                        &__list {
+
+                            &__link {
+                                @extend .adm-u-flexed;
+                                border-bottom: 1px solid #e9ecef;
+                                padding: 8px 15px;
+                            }
+
+                            &__item {
+                                &:last-child {
+                                    .d-notificationWrapper__list__link {
+                                        border-bottom: none;
+                                    }
+                                }
+                            }
+
+                            &__icon {
+                                @include size(30px);
+                                @include box-shadow((0 1px 5px 0 rgba($zblack, 0.2), 0 3px 1px -2px rgba($zblack, 0.12), 0 2px 2px 0 rgba($zblack, 0.14)));
+                                @extend .adm-u-radius4;
+                                @extend .adm-u-flexed;
+                                @extend .adm-u-align-center;
+                                @extend .adm-u-justify-center;
+                                background-color: $warning;
+                                margin-right: 10px;
+                                color: $white;
+                                margin-top: 5px;
+                            }
+
+                            &__text {
+                                @include calc(width, '100% - 40px');
+                                @extend .fs14__regular;
+                                color: $black_sh8;
+                            }
+                        }
+                    }
+                }
+
+                &__userInfo {
+                    &.dropdown {
+                        .dropdown-toggle {
+                            &:after {
+                                display: none;
+                            }
+                        }
+
+                        .user-image {
+                            @include size(35px);
+                            @extend .adm-u-radius100;
+                            display: block;
+                            border: 1px solid $warning;
+                        }
+
+                        .dropdown-menu {
+                            min-width: 240px;
+
+                            .dropdown-item {
+                                @extend .fs16__regular;
+
+                                &.logout {
+                                    color: $danger;
+
+                                    &:active {
+                                        background-color: #f8f9fa;
+                                    }
+                                }
+                            }
+
+                            .user-info {
+                                padding: 0 15px;
+                                @extend .adm-u-flexed;
+                                @extend .adm-u-align-center;
+
+                                &__image {
+                                    @include size(35px);
+                                    margin-right: 10px;
+                                }
+
+                                &__content {
+                                    @include calc(width, '100% - 45px');
+
+                                    &__label {
+                                        @extend .fs14__medium;
+                                        color: $black;
+                                    }
+
+                                    &__description {
+                                        @extend .fs13__medium;
+                                        color: $black_sh4;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include responsive(xs) {
+            @include respond-to(md) {
+                &.design2 {
+                    background: none repeat scroll 0 0;
+                    padding: 20px 20px 0;
+
+                    #{$headerWrapper} {
+                        &__responsiveLogo {
+                            display: none;
+                        }
+
+                        &__brandingName {
+                            display: block;
+                        }
+
+                        &__hamburgerIcon {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.adm-c-sectionHeader {
+    $sectionHeader: &;
+
+    &.design4 {
+        #{$sectionHeader} {
+            &__container {
+                padding: 12px;
+                background-color: $grey_sh4;
+            }
+        }
+    }
+}

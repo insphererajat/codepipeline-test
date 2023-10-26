@@ -1,0 +1,57 @@
+.c-f-bullets__wrapper {
+    $bullets: &;
+     &.design1 {
+         @extend .u-flexed;
+         @extend .u-flex-wrap;
+
+         #{$bullets}-item {
+            width: calc(100% / 2);
+            margin-bottom: 35px;
+
+            &-link {
+                @extend .u-flexed; 
+
+                &-content {
+                    color: $black;
+                    text-transform: uppercase;
+                    @extend .fs17;
+                    @extend .pf-medium;
+                    @include transition(all 0.3s);
+                }
+                &-icon {
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 20px;
+                    background: $black none repeat scroll 0 0;
+                    @include rotate(40); 
+                     
+
+                    &:before {
+                        content:''; 
+                        width: 20px;
+                        height: 20px;
+                        margin-top: 2px;
+                        margin-left: 2px;
+                        background: $white none repeat scroll 0 0;
+                        visibility: hidden; 
+                        @include transition(all 0.5s ease); 
+                        @include opacity(0);
+                        @include rotate(40);   
+                    }
+                }
+                &:hover {
+                    .c-f-bullets__wrapper-item-link-content {
+                        color: $theme_color;  
+                    }
+                    .c-f-bullets__wrapper-item-link-icon:before { 
+                        display: block; 
+                        @include transition(all 0.5s ease);
+                        visibility: visible;
+                        @include opacity(1);  
+                        @include rotate(90);  
+                    }
+                }
+            }
+         }
+     } 
+}

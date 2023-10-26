@@ -1,0 +1,61 @@
+/* Begin basic related files
+   ======================== */
+
+.w100p {
+    width: 100% !important;
+}
+
+.w250 {
+    width: 250px !important;
+}
+
+.w300 {
+    width: 300px !important;
+}
+
+.h300 {
+    height: 300px !important;
+}
+
+.mh300 {
+    max-height: 300px !important;
+}
+
+.max-height680 {
+    max-height: 680px !important;
+}
+.min-height280 {
+    min-height: 280px !important;
+}
+
+/* End basic related files
+   ======================== */
+
+   /* Begin Viewport height with scroll
+==========================*/
+.withScrollVertical {
+    @extend .scrollBar-smallWidth;
+
+    &.vertical {
+        overflow-y: auto;
+    }
+
+    &.horizontal {
+        overflow-x: auto;
+    }
+
+    &.height580 {
+        max-height: calc(100vh - 580px);
+    }
+
+    &.height360 {
+        max-height: calc(100vh - 360px);
+    }
+
+    &.height300 {
+        max-height: calc(100vh - 300px);
+    }
+}
+
+/* End Viewport height with scroll
+==========================*/

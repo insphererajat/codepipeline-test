@@ -1,0 +1,158 @@
+.c-sideBar {
+    $sidebarSelf: &;
+
+    &__overlay {
+        position: fixed;
+        @include size(100%);
+        left: 0;
+        top: 0;
+        background: rgba($zblack, 0.4);
+        z-index: 90;
+        display: none;
+    }
+
+    &__container {
+        background-color: $white;
+        @include box-shadow(0 0px 0px 0 rgba(0, 0, 0, 0));
+        border-right: 1px solid $white_sh7;
+        width: 260px;
+        height: 100%;
+        min-height: 100vh;
+        z-index: 91;
+        position: fixed;
+        padding-bottom: 3.75rem;
+        will-change: transform;
+        backface-visibility: hidden;
+        list-style-type: none;
+        padding: 0;
+        @include transition(all 0s ease);
+        -webkit-transform: translate3d(-100%, 0, 0);
+        -moz-transition: translate3d(-100%, 0, 0);
+        -ms-transition: translate3d(-100%, 0, 0);
+        -o-transition: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    &__header {
+        background: $white_sh1 none repeat scroll 0 0;
+        position: relative;
+        border-bottom: 1px solid $white_sh7;
+        padding: 5px 15px;
+        min-height: 150px;
+        @extend .u-flexed;
+        @extend .u-align-center;
+        @extend .u-justify-center;
+
+        &__logo {
+            display: inline-block;
+
+            .logo-large {
+                height: 120px;
+            }
+        }
+    }
+
+    &__navigation {
+        padding: 10px 15px;
+
+        &__list {
+            &.section-header {
+                color: $black;
+                @extend .fs14__medium;
+                text-transform: uppercase;
+                margin: 18px 0;
+            }
+
+            margin: 15px 0;
+
+            &.dropdown {
+                #{$sidebarSelf} {
+                    &__navigation {
+                        &__item {
+                            &:before {
+                                content: '\f107';
+                                position: absolute;
+                                right: 0;
+                                top: 50%;
+                                @include translate(0, -50%);
+                                @extend .if-solid;
+                                color: $black;
+                            }
+                        }
+                    }
+                }
+
+                .sub-dropdown {
+                    display: none;
+
+                    &__list {
+                        margin: 5px 0;
+                    }
+
+                    &__item {
+                        padding: 10px 10px 10px 30px;
+                        display: block;
+                        @extend .u-radius25;
+                        @include transition(all 0.3s ease);
+                        color: $black;
+                        @extend .fs14__medium;
+                        position: relative;
+
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            @include size(6px);
+                            background-color: $black;
+                            left: 15px;
+                            @extend .u-radius50;
+                            top: 50%;
+                            @include translate(0, -50%);
+                        }
+
+                        &:hover {
+                            background-color: rgba($black, 0.2);
+                        }
+                    }
+                }
+            }
+        }
+
+        &__item {
+            position: relative;
+            width: 100%;
+            display: block;
+
+            &-icon,
+            &-text {
+                color: $black;
+            }
+
+            &-text {
+                @extend .fs16__regular;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    &.u-responsiveBar {
+        #{$sidebarSelf} {
+            &__overlay {
+                display: block;
+            }
+        }
+    }
+
+    @include responsive(xs) {
+        @include respond-to(md) {
+            #{$sidebarSelf} {
+                &__container {
+                    -webkit-transform: translate3d(0, 0, 0);
+                    -moz-transition: translate3d(0, 0, 0);
+                    -ms-transition: translate3d(0, 0, 0);
+                    -o-transition: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        }
+    }
+}

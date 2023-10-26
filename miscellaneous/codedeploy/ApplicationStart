@@ -1,0 +1,16 @@
+#!/bin/bash
+
+service php-fpm start
+service httpd start
+
+#############################################
+#  FOR SQS WORKER SUPERVISORD SERVICE START
+#############################################
+service supervisord start
+
+#############################################
+#  SERVICE CHKCONFIG ON
+#############################################
+chkconfig httpd on
+chkconfig php-fpm on
+chkconfig supervisord on

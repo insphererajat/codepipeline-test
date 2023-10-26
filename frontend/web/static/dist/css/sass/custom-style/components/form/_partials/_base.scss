@@ -1,0 +1,337 @@
+.c-form {
+    $self: &;
+
+    .cop-form {
+        &--container {
+            margin-bottom: 15px;
+
+            &-field {
+                border: 1px solid $grey_sh1;
+                padding: 4px 16px;
+                height: 56px;
+                color: $grey;
+                outline: none;
+                background-color: $white none repeat scroll 0 0;
+                @extend .ls025;
+                width: 100%;
+
+                @include placeholder {
+                    color: $grey_sh12;
+                    font-family: "RobotoRegular";
+                    font-size: 14px;
+                    opacity: 1;
+                }
+
+                &.u-fieldHeight34 {
+                    height: 34px;
+                }
+
+                &.u-fieldHeight38 {
+                    height: 38px;
+                }
+
+                &.u-fieldHeight40 {
+                    height: 40px;
+                }
+
+                &.u-fieldHeight48 {
+                    height: 48px;
+                }
+
+                &.u-fieldHeight56 {
+                    height: 56px;
+                }
+
+                &.u-fieldHeight80 {
+                    height: 80px;
+                }
+
+                &:focus {
+                    border-color: $warning;
+                }
+
+                &.disabled,
+                &:disabled {
+                    cursor: not-allowed;
+
+                    @include placeholder {
+                        color: $black;
+                        font-family: "RobotoRegular";
+                        font-size: 14px;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &.withIcon {
+                &-lt {
+                    position: relative;
+
+                    .icon {
+                        position: absolute;
+                        top: 50%;
+                        @include translate(0, -50%);
+                        left: 20px;
+                    }
+
+                    .cop-form--container-field {
+                        padding: 4px 16px 4px 45px;
+                    }
+                }
+
+                &-rt {
+                    position: relative;
+
+                    .icon {
+                        position: absolute;
+                        top: 50%;
+                        @include translate(0, -50%);
+                        right: 20px;
+                    }
+
+                    .cop-form--container-field {
+                        padding: 4px 45px 4px 16px;
+                    }
+                }
+            }
+
+            .cop-form__uploader {
+                max-width: 270px;
+                width: 100%;
+                height: 150px;
+                @extend .u-radius8;
+                border: 2px dashed $grey_sh1;
+                @extend .u-flexed;
+                @extend .u-align-center;
+                @extend .u-justify-center;
+                @extend .u-flex-direction-column;
+                position: relative;
+
+
+                &--btn {
+                    color: $white;
+                    border: 0px none;
+                    line-height: 30px;
+                    text-align: center;
+                    @include size(30px);
+                    @extend .u-radius50;
+                    margin-bottom: 16px;
+                    background-color: $success;
+                    @include box-shadow(0 2px 2px 0 rgba($success, 0.3));
+                }
+
+                &--text {
+                    margin-bottom: 0;
+                    color: $grey_sh1;
+                    @extend .pf-medium;
+                    @extend .fs14;
+                    text-align: center;
+                    padding: 0 12px;
+
+                    >span {
+                        color: $success;
+                    }
+                }
+
+                &--loading {
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    background-color: $white;
+
+                    img {
+                        top: 50%;
+                        left: 50%;
+                        display: block;
+                        position: absolute;
+                        @include size(50px);
+                        @extend .u-radius50;
+                        @include transform(translate(-50%, -50%));
+                    }
+                }
+
+                &--placeholder {
+                    padding: 4px;
+                    display: block;
+                    overflow: hidden;
+                    position: absolute;
+                    @extend .u-radius50;
+                    @include size(110px);
+                    background-color: $white;
+                    border: 1px solid $grey_sh12;
+                    @extend .vertical-align-c;
+
+                    img {
+                        @include size(100px);
+                    }
+                }
+
+                .trash {
+                    top: 10px;
+                    z-index: 2;
+                    right: 10px;
+                    @extend .u-cursor-pointer;
+                    border: 0px none;
+                    color: $black_sh3;
+                    position: absolute;
+                    background-color: $white;
+                }
+
+                &.design2 {
+                    .trash {
+                        background-color: transparent;
+                        color: $black_sh5;
+                    }
+
+                    .cop-form__uploader--placeholder {
+                        padding: 0px;
+                        @include size(100%);
+                        border: none;
+                        @extend .u-radius8;
+                        @extend .u-flexed;
+                        @extend .u-align-center;
+                        @extend .u-justify-center;
+
+                        img {
+                            @include size(100%);
+							height:150px;
+							
+                            border: none;
+                            @include border-radius(8px !important);
+                        }
+                    }
+                }
+            }
+        }
+
+        .help-block {
+            display: none;
+            @extend .fs13;
+        }
+
+        .has-error {
+            .cop-form--container {
+                &-field {
+                    color: $danger;
+                    border-color: $danger;
+
+                    @include placeholder {
+                        color: $danger;
+                    }
+
+                    &-icon,
+                    .u-icon {
+                        color: $danger;
+                    }
+                }
+
+                &-icon,
+                .u-icon {
+                    color: $danger;
+                }
+
+                .help-block {
+                    display: block;
+                    color: $danger;
+                }
+            }
+
+            .head-wrapper__title-label,
+            .head-wrapper__title-subLabel {
+                color: $danger !important;
+            }
+        }
+
+        .has-success {
+            .cop-form--container {
+                &-field {
+                    color: $success;
+                    border-color: $success;
+
+                    @include placeholder {
+                        color: $success;
+                    }
+
+                    &-icon,
+                    .u-icon {
+                        color: $success;
+                    }
+                }
+
+                &-icon,
+                .u-icon {
+                    color: $success;
+                }
+
+                .help-block {
+                    color: $success;
+                }
+            }
+
+            .head-wrapper__title-label,
+            .head-wrapper__title-subLabel {
+                color: $success !important;
+            }
+        }
+    }
+
+    &.u-fieldShadow {
+        .cop-form {
+            &--container {
+                &-field {
+                    @include box-shadow(0 3px 3px 0 rgba(221, 221, 221, 0.5) !important);
+                }
+            }
+        }
+    }
+
+    &.u-fieldBorderClr2 {
+        .cop-form--container {
+            &.withIcon {
+
+                &-lt,
+                &-rt {
+                    color: $grey_sh12;
+                }
+            }
+
+            &-field {
+                border-color: $grey_sh2;
+
+                &:focus {
+                    border-color: $warning;
+                }
+            }
+        }
+    }
+
+    &.u-fieldRadius4 {
+        .cop-form {
+            &--container {
+                &-field {
+                    @extend .u-radius4;
+
+                    &:focus {
+                        @extend .u-radius4;
+                    }
+                }
+            }
+        }
+    }
+
+    &.u-fieldRadius8 {
+        .cop-form {
+            &--container {
+                &-field {
+                    @extend .u-radius8;
+
+                    &:focus {
+                        @extend .u-radius8;
+                    }
+                }
+            }
+        }
+    }
+}

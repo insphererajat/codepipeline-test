@@ -1,0 +1,14 @@
+image: amazonlinux:1
+
+pipelines:
+    custom:
+       push-to-master:
+            - step:
+                name: Push code to web servers
+                script:
+                    - export BITBUCKET_BRANCH_CHECK=master
+                    - bash miscellaneous/bitbucket-pipelines/check
+                    - bash miscellaneous/bitbucket-pipelines/prerequisite
+                    - bash miscellaneous/bitbucket-pipelines/s3_master_sync
+                    - bash miscellaneous/bitbucket-pipelines/codedeploy
+                                     

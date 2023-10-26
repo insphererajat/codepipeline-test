@@ -1,0 +1,232 @@
+.c-form {
+    &.u-fieldRadius8 {
+        .dropdowns-customized {
+            &.sumo {
+                .SumoSelect>.CaptionCont {
+                    @extend .u-radius8;
+                }
+            }
+
+            &.chosen {
+                .chosen-container-single .chosen-single {
+                    @extend .u-radius8;
+                }
+            }
+        }
+    }
+
+    &.u-fieldShadow {
+        .dropdowns-customized {
+            &.sumo {
+                .SumoSelect>.CaptionCont {
+                    @include box-shadow(0 3px 3px 0 rgba(221, 221, 221, 0.5) !important);
+                }
+            }
+
+            &.chosen {
+                .chosen-container-single .chosen-single {
+                    @include box-shadow(0 3px 3px 0 rgba(221, 221, 221, 0.5) !important);
+                }
+            }
+        }
+    }
+
+    &.u-fieldBorderClr2 {
+        .dropdowns-customized {
+            &.sumo {
+                .SumoSelect>.CaptionCont {
+                    color: $grey;
+                    border-color: $grey_sh2;
+                }
+            }
+
+            &.chosen {
+                .chosen-container-single .chosen-single {
+                    border-color: $grey_sh2;
+
+                    span {
+                        color: $grey;
+                    }
+                }
+            }
+        }
+    }
+
+    .dropdowns-customized {
+
+        &.sumo {
+            .SumoSelect {
+                width: 100%;
+
+                >.CaptionCont {
+                    @extend .u-flexed;
+                    @extend .u-align-center;
+                    padding: 4px 16px;
+
+                    >label {
+                        cursor: pointer;
+                        width: 40px;
+                        margin-bottom: 0px;
+                        @extend .u-flexed;
+                        @extend .u-align-center;
+                        @extend .u-justify-center;
+
+                        &:before {
+                            content: '\f107';
+                            @extend .if-solid;
+                            display: block;
+                            @extend .fs20;
+                            color: $warning;
+                        }
+
+                        i {
+                            display: none;
+                        }
+                    }
+                }
+
+                >.optWrapper {
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0.11));
+                }
+
+                .select-all {
+                    height: inherit;
+                }
+            }
+
+            &.fs14__regular {
+                .SumoSelect>.CaptionCont>span {
+                    @extend .fs14;
+                    @extend .pf-regular;
+                }
+            }
+
+            &.fs14__medium {
+                .SumoSelect>.CaptionCont>span {
+                    @extend .fs14;
+                    @extend .pf-medium;
+                }
+            }
+
+            &.fs16__regular {
+                .SumoSelect>.CaptionCont>span {
+                    @extend .fs16;
+                    @extend .pf-regular;
+                }
+            }
+
+            &.fs16__medium {
+                .SumoSelect>.CaptionCont>span {
+                    @extend .fs16;
+                    @extend .pf-medium;
+                }
+            }
+
+            &.u-fieldHeight34 {
+                .SumoSelect>.CaptionCont {
+                    height: 34px;
+                }
+            }
+
+            &.u-fieldHeight38 {
+                .SumoSelect>.CaptionCont {
+                    height: 38px;
+                }
+            }
+
+            &.u-fieldHeight40 {
+                .SumoSelect>.CaptionCont {
+                    height: 40px;
+                }
+            }
+
+            &.u-fieldHeight48 {
+                .SumoSelect>.CaptionCont {
+                    height: 48px;
+                }
+
+                .SumoSelect.open>.optWrapper {
+                    top: 42px;
+                }
+            }
+
+            &.u-fieldHeight56 {
+                .SumoSelect>.CaptionCont {
+                    height: 56px;
+                }
+            }
+
+            &.u-fieldHeight80 {
+                .SumoSelect>.CaptionCont {
+                    height: 80px;
+                }
+            }
+        }
+
+        &.chosen {
+            .chosen-container-single {
+                width: 100% !important;
+
+                .chosen-single {
+                    background: $white none repeat scroll 0 0 !important;
+                    padding: 4px 16px;
+                    @extend .u-flexed;
+                    @extend .u-align-center;
+
+                    &:before {
+                        content: '\f107';
+                        @extend .if-solid;
+                        display: block;
+                        @extend .fs20;
+                        color: $warning;
+                        position: absolute;
+                        top: 50%;
+                        right: 16px;
+                        @include translate(0, -50%);
+                    }
+
+                    span {
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            &.u-fieldHeight34 {
+                .chosen-container-single .chosen-single {
+                    height: 34px;
+                }
+            }
+
+            &.u-fieldHeight38 {
+                .chosen-container-single .chosen-single {
+                    height: 38px;
+                }
+            }
+
+            &.u-fieldHeight40 {
+                .chosen-container-single .chosen-single {
+                    height: 40px;
+                }
+            }
+
+            &.u-fieldHeight48 {
+                .chosen-container-single .chosen-single {
+                    height: 48px;
+                }
+            }
+
+            &.u-fieldHeight56 {
+                .chosen-container-single .chosen-single {
+                    height: 56px;
+                }
+            }
+
+            &.u-fieldHeight80 {
+                .chosen-container-single .chosen-single {
+                    height: 80px;
+                }
+            }
+
+        }
+    }
+}

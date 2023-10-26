@@ -1,0 +1,156 @@
+.adm-c-accordion {
+    .card {
+        border-radius: 0px;
+        border-color: $white_sh2;
+
+        .card-header {
+            padding: 0;
+            border-color: $white_sh2;
+            .card-link {
+                padding: 15px;
+                color: $black;
+                position: relative;
+                @extend .adm-u-flexed;
+                @extend .pf-regular; 
+                @extend .fs14;
+            } 
+        }
+        .card-body {
+            color: $black;
+            @extend .pf-regular; 
+            @extend .fs14;
+        }
+    }
+    &.withIcon {
+        .card {  
+            .card-header { 
+                .card-link { 
+                    &:before {
+                        position: absolute;
+                        right: 15px;
+                        top: 50%;
+                        display: block;
+                        height: 15px;
+                        @include transition( 0.3s all ease-in-out); 
+                        @include translateY(-50%);
+                    }
+                } 
+            } 
+        }
+    } 
+    &.colorLight {
+        .card .card-header .card-link {
+            color: $white;
+        }
+    }
+    &.IconSize14 {
+        .card .card-header .card-link::before {
+            @extend .fs14;
+        }
+    } 
+    &.IconSize15 {
+        .card .card-header .card-link::before {
+            @extend .fs15;
+        }
+    }  
+    &.IconSize16 {
+        .card .card-header .card-link::before {
+            @extend .fs16;
+        }
+    } 
+    &.IconSize18 {
+        .card .card-header .card-link::before {
+            @extend .fs18;
+        }
+    } 
+    &.IconSize20 {
+        .card .card-header .card-link::before {
+            @extend .fs20;
+        }
+    }  
+    &.IconSize22 {
+        .card .card-header .card-link::before {
+            @extend .fs22;
+        }
+    } 
+    &.withArrow {
+        .card {  
+            .card-header { 
+                .card-link { 
+                    &:before {
+                        content:'\f107';
+                        @extend .if-solid;
+                        @include rotate(180); 
+                    }
+                     
+                } 
+                .collapsed {
+                    &:before {
+                        top: 50%;
+                        @include rotate(0); 
+                        @include translateY(-75%);
+                    } 
+                }
+            } 
+        }
+    }
+    &.withPlus {
+        .card {  
+            .card-header { 
+                .card-link { 
+                    &:before {
+                        content:'\f067'; 
+                        @extend .if-solid; 
+                    }
+                     
+                } 
+                .collapsed {
+                    &:before {
+                        content:'\f068';
+                    } 
+                }
+            } 
+        }
+    }  
+    &.primaryBg {
+        .card .card-header .card-link {
+            background-color: #007bff !important;
+        }
+    } 
+    &.successBg {
+        .card .card-header .card-link {
+            background-color: #28a745!important;
+        }
+    }
+    &.infoBg {
+        .card .card-header .card-link {
+            background-color: #17a2b8 !important;
+        }
+    }
+    &.warningBg {
+        .card .card-header .card-link {
+            background-color: #ffc107 !important;
+        }
+    }
+    &.dangerBg {
+        .card .card-header .card-link {
+            background-color: #dc3545 !important;
+        }
+    }
+    &.darkBg {
+        .card .card-header .card-link {
+            background-color: #343a40 !important;
+        }
+    }
+    &.lightBg {
+        .card .card-header .card-link {
+            background-color: #f8f9fa !important;
+        }
+    }
+    &.secondaryBg {
+        .card .card-header .card-link {
+            background-color: #6c757d !important;
+        }
+    }
+}
+ 

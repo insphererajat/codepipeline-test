@@ -1,0 +1,53 @@
+.adm-c-footer {
+    $footerSelf: &;
+
+    &.design1 {
+        padding: 10px 20px;
+
+
+        #{$footerSelf} {
+            &__container {
+                @extend .adm-u-flexed;
+                @extend .adm-u-align-center;
+                @extend .adm-u-flex-direction-column;
+                border-top: 1px solid $grey_sh1;
+                padding: 10px 0px;
+
+                &__ls {
+                    ul {
+                        @extend .adm-u-flexed;
+                        @extend .adm-u-align-center;
+
+                        li {
+                            height: 39px;
+                            margin: 0 17px;
+
+                            img {
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+
+                &__rs {
+                    @extend .fs13__regular;
+                    color: $black_sh8;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+    @include responsive(xs) {
+        @include respond-to(md) {
+            &.design1 {
+                #{$footerSelf} {
+                    &__container {
+                        @include flex-direction(row, horizontal);
+                        @include justify-content(space-between);
+                    }
+                }
+            }
+        }
+    }
+}

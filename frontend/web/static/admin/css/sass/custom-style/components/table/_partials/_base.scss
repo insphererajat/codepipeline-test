@@ -1,0 +1,12 @@
+.adm-c-tableGrid {
+    $tableGrid: &; 
+    &__container { 
+        .table-responsive {
+            &.withScroll { 
+                overflow: auto;
+                @include calc(height, '100%');
+                @extend .scrollBar-smallWidth;
+            }
+        }
+    }
+}

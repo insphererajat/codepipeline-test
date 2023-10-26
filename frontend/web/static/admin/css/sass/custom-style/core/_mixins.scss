@@ -1,0 +1,683 @@
+@mixin clearfix() {
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    -ms-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin box-shadow2($shadow1, $shadow2:false, $shadow3:false, $shadow4:false, $shadow5:false) {
+    $params: $shadow1;
+
+    @if $shadow2 {
+        $params: $shadow1, $shadow2;
+    }
+
+    @if $shadow3 !=false {
+        $params: $shadow1, $shadow2, $shadow3;
+    }
+
+    @if $shadow4 !=false {
+        $params: $shadow1, $shadow2, $shadow3, $shadow4;
+    }
+
+    @if $shadow5 !=false {
+        $params: $shadow1, $shadow2, $shadow3, $shadow4, $shadow5;
+    }
+
+    -webkit-box-shadow: $params;
+    -moz-box-shadow: $params;
+    box-shadow: $params;
+}
+
+/* Declaration */
+/* @include box-shadow2(-1px -1px 2px rgba(0, 0, 0, .05), 0 1px 1px white inset) */
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
+}
+
+/* Transition */
+@mixin transition($transition) {
+    transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+}
+
+
+/* Transform */
+@mixin transform($transforms) {
+    -webkit-transform: $transforms;
+    /* Chrome, Safari, Opera */
+    -moz-transform: $transforms;
+    /* Mozilla Firefox */
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    /* IE 9 */
+    transform: $transforms;
+}
+
+/* rotate */
+@mixin rotate ($deg) {
+    @include transform(rotate(#{$deg}deg));
+}
+
+/* scale */
+@mixin scale($scale) {
+    @include transform(scale($scale));
+}
+
+/* translate */
+@mixin translate ($x, $y) {
+    @include transform(translate($x, $y));
+}
+
+@mixin translateY ($y) {
+    @include transform(translateY($y));
+}
+
+@mixin translateX ($x) {
+    @include transform(translateX($x));
+}
+
+/* skew */
+@mixin skew ($x, $y) {
+    @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+/* transform origin */
+@mixin transform-origin ($origin) {
+    -webkit-transform-origin: $origin;
+    /* Chrome, Safari, Opera */
+    -moz-transform-origin: $origin;
+    /* Mozilla Firefox */
+    -o-transform-origin: $origin;
+    -ms-transform-origin: $origin;
+    /* IE 9 */
+    transform-origin: $origin;
+}
+
+@mixin horizontal-gradient($from, $to, $stop: 100%) {
+    /* fallback/image non-cover color */
+    background-color: $from;
+
+    /* Firefox 3.6+ */
+    background-image: -moz-linear-gradient(left, $from 0%, $to $stop);
+
+    /* Safari 4+, Chrome 1+ */
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, $from), color-stop($stop, $to));
+
+    /* Safari 5.1+, Chrome 10+ */
+    background-image: -webkit-linear-gradient(left, $from 0%, $to $stop);
+
+    /* Opera 11.10+ */
+    background-image: -o-linear-gradient(left, $from 0%, $to $stop);
+
+    /* IE10+ */
+    background: -ms-linear-gradient(left, $from 0%, $to $stop);
+
+    /* Standard */
+    background: linear-gradient(to right, $from 0%, $to $stop);
+
+    /* IE6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to', GradientType=1);
+}
+
+@mixin vertical-gradient($from, $to, $stop: 100%) {
+    /* fallback/image non-cover color */
+    background-color: $from;
+
+    /* Firefox 3.6+ */
+    background-image: -moz-linear-gradient(top, $from 0%, $to $stop);
+
+    /* Safari 4+, Chrome 1+ */
+    background-image: -webkit-gradient(linear, top, bottom, color-stop(0%, $from), color-stop($stop, $to));
+
+    /* Safari 5.1+, Chrome 10+ */
+    background-image: -webkit-linear-gradient(top, $from 0%, $to $stop);
+
+    /* Opera 11.10+ */
+    background-image: -o-linear-gradient(top, $from 0%, $to $stop);
+
+    /* IE10+ */
+    background: -ms-linear-gradient(top, $from 0%, $to $stop);
+
+    /* Standard */
+    background: linear-gradient(to bottom, $from 0%, $to $stop);
+
+    /* IE6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to', GradientType=1);
+}
+
+/* Image Cover Size */
+@mixin background-size($background-size) {
+    -webkit-background-size: $background-size !important;
+    /* Chrome, Safari, Opera */
+    -moz-background-size: $background-size !important;
+    /* Mozilla Firefox */
+    -ms-background-size: $background-size !important;
+    /* IE 9 */
+    -o-background-size: $background-size !important;
+    background-size: $background-size !important;
+}
+
+@mixin blur ($radius) {
+    filter: blur($radius+px);
+    filter: progid:DXImageTransform.Microsoft.Blur(Strength=#{$radius});
+    -webkit-filter: blur($radius+px);
+    -ms-filter: blur($radius+px);
+    -o-filter: blur($radius+px);
+    -moz-filter: blur($radius+px);
+}
+
+/* Sizes */
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin text-overflow() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Image Object Fit */
+@mixin object-fit($object-fit) {
+    -webkit-object-fit: $object-fit;
+    /* Chrome, Safari, Opera */
+    -moz-object-fit: $object-fit;
+    /* Mozilla Firefox */
+    -ms-object-fit: $object-fit;
+    /* IE 9 */
+    -o-object-fit: $object-fit;
+    object-fit: $object-fit;
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        /* Firefox 18- */
+        @content;
+    }
+
+    &::-moz-placeholder {
+        /* Firefox 19+ */
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    66% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    66% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin inline-flex {
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+@mixin flex($values) {
+    -webkit-box-flex: $values;
+    -moz-box-flex: $values;
+    -webkit-flex: $values;
+    -ms-flex: $values;
+    flex: $values;
+}
+
+@mixin flexboxImp() {
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+}
+
+@mixin justify-content($justify) {
+    -webkit-justify-content: $justify;
+    -moz-justify-content: $justify;
+    -ms-justify-content: $justify;
+    justify-content: $justify;
+    -ms-flex-pack: $justify;
+}
+
+@mixin align-items($align) {
+    -webkit-align-items: $align;
+    -moz-align-items: $align;
+    -ms-align-items: $align;
+    align-items: $align;
+}
+
+@mixin align-self($align) {
+    -webkit-align-self: $align;
+    -moz-align-self: $align;
+    -ms-align-self: $align;
+    align-self: $align;
+}
+
+@mixin flex-direction($direction, $orient) {
+    -webkit-flex-direction: $direction;
+    -moz-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+    -webkit-box-orient: $orient;
+    -moz-box-orient: $orient;
+    -ms-box-orient: $orient;
+    box-orient: $orient;
+}
+
+@mixin flex-wrap($wrap) {
+    -webkit-flex-wrap: $wrap;
+    -moz-flex-wrap: $wrap;
+    -ms-flex-wrap: $wrap;
+    flex-wrap: $wrap;
+}
+
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+@mixin font-size($sizeValue: 16) {
+    font-size: ($sizeValue / 16) + rem;
+}
+
+/* Begin Media query mixin */
+$breakpoints: (xs: 576px,
+    sm: 768px,
+    md: 992px,
+    cmd: 1171px,
+    lg: 1200px,
+    clg: 1367px);
+
+/* @include respond-above(sm) {} */
+@mixin respond-above($breakpoint) {
+
+    /* If the breakpoint exists in the map. */
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        /* Get the breakpoint value. */
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+        /* Write the media query. */
+        @media (min-width: $breakpoint-value) {
+            @content;
+        }
+
+        /* If the breakpoint doesn't exist in the map. */
+    }
+
+    @else {
+
+        /* Log a warning. */
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+
+/*
+  RESPOND BELOW
+  ––––––––––––––––––––––––––––––––––––––––––––––––––  */
+
+/* @include respond-below(sm) {} */
+@mixin respond-below($breakpoint) {
+
+    /* If the breakpoint exists in the map. */
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        /* Get the breakpoint value. */
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+        /* Write the media query. */
+        @media (max-width: ($breakpoint-value - 1)) {
+            @content;
+        }
+
+        /* If the breakpoint doesn't exist in the map. */
+    }
+
+    @else {
+
+        /* Log a warning. */
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+
+/*
+  RESPOND BETWEEN
+  ––––––––––––––––––––––––––––––––––––––––––––––––––  */
+
+/* @include respond-between(sm, md) {} */
+@mixin respond-between($lower, $upper) {
+
+    /* If both the lower and upper breakpoints exist in the map. */
+    @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+
+        /* Get the lower and upper breakpoints. */
+        $lower-breakpoint: map-get($breakpoints, $lower);
+        $upper-breakpoint: map-get($breakpoints, $upper);
+
+        /* Write the media query. */
+        @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+            @content;
+        }
+
+        /* If one or both of the breakpoints don't exist. */
+    }
+
+    @else {
+
+        /* If lower breakpoint is invalid. */
+        @if (map-has-key($breakpoints, $lower)==false) {
+
+            /* Log a warning. */
+            @warn 'Your lower breakpoint was invalid: #{$lower}.';
+        }
+
+        /* If upper breakpoint is invalid. */
+        @if (map-has-key($breakpoints, $upper)==false) {
+
+            /* Log a warning. */
+            @warn 'Your upper breakpoint was invalid: #{$upper}.';
+        }
+    }
+}
+
+
+$minBreakpoints: ('xs': (min-width: 576px),
+    'sm': (min-width: 768px),
+    'md': (min-width: 992px),
+    'cmd': (min-width: 1171px),
+    'lg': (min-width: 1200px),
+    'cminlg': (min-width: 1367px),
+    'clg': (min-width: 1500px));
+
+@mixin respond-to($names: ()) {
+    @each $name in $names {
+        @if map-has-key($minBreakpoints, $name) {
+            @media #{inspect(map-get($minBreakpoints, $name))} {
+                @content;
+            }
+        }
+
+        @else {
+            @warn "Unfortunately, no value could be retrieved for `#{$name}`.";
+        }
+    }
+}
+
+@mixin responsive($names: map-keys($minBreakpoints)) {
+
+    @each $name in $names {
+        @if map-has-key($minBreakpoints, $name) {
+            &-#{$name} {
+                @media #{inspect(map-get($minBreakpoints, $name))} {
+                    @content;
+                }
+            }
+        }
+
+        @else {
+            @warn "Unfortunately, no value could be retrieved for `#{$name}`.";
+        }
+    }
+}
+
+@mixin themeColorVarient($name, $color1, $secondaryColor, $color2, $colorText) {
+    .#{$name} {
+
+        .u-close,
+        .bootbox-close-button {
+
+            &:before,
+            &:after {
+                background-color: $color1;
+            }
+        }
+        .btn-outline-theme { 
+            border-color: $color1;
+            background: transparent;
+            color: $color1;
+
+            &:hover, &:focus {
+                background: darken($color1, 5%); 
+                border-color: darken($color1, 5%);
+                color: $white;
+            }
+        }
+        .theme-button {
+            &:hover, &:focus {
+                background: darken($color1, 5%);   
+            }
+        }
+        .adm-c-pageHeader__breadcrumb .breadcrumb-item a {
+            color: $color1;
+        }
+        .adm-c-tableGrid.design1 .adm-c-tableGrid__container .table thead th {
+            background-color: $color1;
+        }
+        .button-v2--primary.theme-button, .theme-button {
+            background-color: $color1;
+        }
+        .adm-c-accordion.themeBg .card .card-header .card-link {
+            background-color: $color1; 
+        } 
+        .c-form .cop-form--container.withIcon-rt .icon:hover {
+            color: $color1;
+        }
+
+        .c-header__wrapper.design2 .c-header__wrapper__userInfo.dropdown .user-image,
+        .c-form.u-fieldBorderClr2 .cop-form--container-field:focus {
+            border-color: $color1;
+        }
+
+        .page-item {
+            .page-link {
+                color: $color1;
+            }
+
+            &.active .page-link {
+                background-color: $color1;
+                border-color: $color1;
+                color: $white;
+            }
+        }
+
+        .c-header__wrapper.design2 .c-header__wrapper__home,
+        .c-header__wrapper.design2 .c-header__wrapper__notify {
+            .icon:hover {
+                color: $color1;
+            }
+        }
+
+        .c-tabbing {
+            &.design1 {
+                .c-tabbing__nav__link {
+
+                    &.active,
+                    &:hover {
+                        color: $color1 !important;
+                        border-color: $color1 !important;
+                    }
+                }
+            }
+
+            &.design2 {
+                .c-tabbing__nav__link {
+
+                    &.active,
+                    &:hover {
+                        background-color: $color1 !important;
+                    }
+                }
+            }
+
+            &.design3 {
+                .c-tabbing__nav__link {
+
+                    &.active,
+                    &:hover {
+                        color: $color1 !important;
+                    }
+                }
+            }
+        }
+
+        .c-tabbing.design1 .scrtabs-tab-scroll-arrow-right.scrtabs-disable:before,
+        .c-tabbing.design1 .scrtabs-tab-scroll-arrow-left.scrtabs-disable:before,
+        .c-tabbing.design2 .scrtabs-tab-scroll-arrow-right.scrtabs-disable:before,
+        .c-tabbing.design2 .scrtabs-tab-scroll-arrow-left.scrtabs-disable:before,
+        .c-tabbing.design3 .scrtabs-tab-scroll-arrow-right.scrtabs-disable:before,
+        .c-tabbing.design3 .scrtabs-tab-scroll-arrow-left.scrtabs-disable:before {
+            color: rgba($color1, 0.4);
+        }
+
+        .c-tabbing.design4 .c-tabbing__nav__link {
+            &.completed {
+                .c-tabbing__nav__circle {
+                    background-color: $color1;
+                    border-color: $color1;
+                }
+            }
+
+            &.active {
+                .c-tabbing__nav__circle:before {
+                    background-color: $color1;
+                }
+            }
+        }
+
+        .login__wrap__information {
+            &:before {
+                background-color: $secondaryColor;
+            }
+
+            &__content-media {
+                &:before {
+                    background-color: $secondaryColor;
+                }
+            }
+        }
+
+        .c-sideBar__navigation {
+            &__list {
+                &.section-header {
+                    color: $color1;
+                }
+
+                &.dropdown {
+                    .c-sideBar__navigation__item {
+                        &:before {
+                            color: $colorText;
+                        }
+                    }
+
+                    .sub-dropdown {
+                        &__item {
+                            color: $color1;
+
+                            &:hover {
+                                background-color: $secondaryColor;
+                            }
+
+                            &:before {
+                                background-color: $color1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__item {
+
+                &-icon,
+                &-text {
+                    color: $colorText;
+                }
+            }
+        }
+
+        .c-sectionHeader.design1 .c-sectionHeader__action,
+        .c-sectionHeader.design2 .c-sectionHeader__action,
+        .c-sectionHeader.design3 .c-sectionHeader__action,
+        .c-readOnly__screen.design1 .c-readOnly__screen__container__list .field-value,
+        .c-sideBar__container .close-icon .icon--responsive,
+        .c-sideBar__container .close-icon .icon--expanded,
+        .c-sideBar__container .close-icon .icon--colapsed,
+        .c-form .dropdowns-customized.chosen .chosen-container-single .chosen-single:before,
+        .form-grider.design1 .head-wrapper__options .icon,
+        .c-tableGrid.design2 .c-tableGrid__container .table thead th .sort:after,
+        .c-tabbing.design1 .scrtabs-tab-scroll-arrow-right:before,
+        .c-tabbing.design1 .scrtabs-tab-scroll-arrow-left:before,
+        .c-tabbing.design2 .scrtabs-tab-scroll-arrow-right:before,
+        .c-tabbing.design2 .scrtabs-tab-scroll-arrow-left:before,
+        .c-tabbing.design3 .scrtabs-tab-scroll-arrow-right:before,
+        .c-tabbing.design3 .scrtabs-tab-scroll-arrow-left:before {
+            color: $color1;
+        }
+    }
+}

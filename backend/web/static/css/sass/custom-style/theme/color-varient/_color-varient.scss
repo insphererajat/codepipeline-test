@@ -1,0 +1,21 @@
+@include themeColorVarient(themeOption1, #4fa941, #f7a366, #4fa941, #cfe5c6, #746b66, #050505);
+//@include themeColorVarient(themeClr-2, #34364f, #746b66, #746b66);
+
+.themeOption1 { 
+    .adm-c-formSelectors {
+        &.design1 {
+
+            input[type='checkbox'],
+            input[type='radio'] {
+                --active: #4fa941;
+                --active-inner: #fff;
+                --focus: 2px rgba(137, 228, 123, .3);
+                --border: #89e47b;
+                --border-hover: #4fa941;
+                --background: #fff;
+                --disabled: #F6F8FF;
+                --disabled-inner: #E1E6F9;
+            }
+        }
+    }
+}

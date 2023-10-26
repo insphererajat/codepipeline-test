@@ -1,0 +1,191 @@
+.c-tabbing {
+    $subTabbing: &;
+
+    &.design4 {
+        #{$subTabbing} {
+            &__nav {
+                border-bottom: none;
+                @extend .u-justify-center;
+                margin-bottom: 30px;
+				@media screen and (max-width: 767px) {
+							 @include flex-direction(column, verticle);
+							 @include justify-content(flex-start);
+							 @include align-items(flex-start);
+							 padding:0px 30px;
+							}
+
+                &__label {
+                    display: none;
+                    position: absolute;
+                    background: $white none repeat scroll 0 0;
+                    @extend .u-radius4;
+                    @include box-shadow(0 3px 3px 0 rgba(221, 221, 221, 0.5));
+                    min-width: 180px;
+                    min-height: 55px;
+                    left: 50%;
+                    top: 50%;
+                    @include translate(-50%, -50%);
+                    @extend .u-align-center;
+                    @extend .u-justify-center;
+                    @extend .fs14__medium;
+                    top: -100%;
+                    padding: 0 10px;
+					@media screen and (max-width: 767px) { 
+					  top: -27%;
+					}
+
+                    &:before {
+                        content: '\f0d7';
+                        position: absolute;
+                        @extend .if-solid;
+                        color: $white;
+                        @extend .fs26;
+                        left: 50%;
+                        @include translate(-50%, 0);
+                        @include calc(top, '100% - 12px');
+                        line-height: 1;
+                    }
+                }
+
+                &__circle {
+                    @include size(20px);
+                    background: $white;
+                    border: 2px solid $grey_sh1;
+                    @extend .u-radius50;
+                }
+
+                &__step {
+                    color: $black_sh7;
+                    @extend .fs13__regular;
+                    margin-top: 8px;
+					@media screen and (max-width: 767px) { 
+					text-align:center;
+					width:100%;
+					padding:7px;
+					font-size:15px;
+					background:#27c897;
+					 color:white;	
+					a{
+					 color:white;	
+					}
+					}
+                }
+
+                &__link {
+                    @extend .u-flexed;
+                    @extend .u-flex-direction-column;
+                    @extend .u-align-center;
+                    cursor: pointer;
+                    position: relative;
+
+                    &.active,
+                    &:hover {
+                        #{$subTabbing}__nav {
+                            &__label {
+                                @extend .u-flexed;
+                            }
+                        }
+                    }
+
+                    &.active {
+                        cursor: default;
+
+                        #{$subTabbing}__nav {
+                            &__circle {
+                                border-color: $white;
+                                @include box-shadow(0 3px 3px 0 rgba(221, 221, 221, 0.5));
+                                position: relative;
+
+                                &:before {
+                                    content: '';
+                                    position: absolute;
+                                    @include size(11px);
+                                    background-color: $warning;
+                                    left: 50%;
+                                    top: 50%;
+                                    @include translate(-50%, -50%);
+                                    @extend .u-radius50;
+                                }
+                            }
+                        }
+                    }
+
+                    &.completed {
+                        cursor: default;
+
+                        #{$subTabbing}__nav {
+                            &__circle {
+                                background-color: $warning;
+                                border-color: $warning;
+                                @include box-shadow(0 3px 3px 0 rgba(221, 221, 221, 0.5));
+                                position: relative;
+
+                                &:before {
+                                    content: '\f00c';
+                                    position: absolute;
+                                    @extend .if-solid;
+                                    color: $white;
+                                    @extend .fs9;
+                                    left: 50%;
+                                    top: 50%;
+                                    @include translate(-50%, -50%);
+                                }
+                            }
+
+                            &__label {
+                                z-index: 2;
+                            }
+                        }
+                    }
+                }
+
+                li {
+                    position: relative;
+					@media screen and (max-width: 767px) {
+							width:100%; 
+							border:1px #ccc solid;
+							margin-bottom:15px;
+							@include box-shadow(0 3px 3px 0 rgba(221, 221, 221, 0.5));
+							padding:10px 0px;
+							padding-bottom:0px;
+							}
+
+                    +li {
+                        margin-left: 90px;
+						
+						@media screen and (max-width: 992px) {
+							margin-left:57px;
+		
+						}
+						
+						@media screen and (max-width: 767px) {
+							margin-left:0px;
+							
+							}
+
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            left: -96px;
+                            height: 2px;
+                            width: 102px;
+                            background: $grey_sh1 none repeat scroll 0 0;
+                            top: 10px;
+							@media screen and (max-width: 992px) {
+							left: -63px;
+    						height: 2px;
+    						width: 72px;
+		
+						    }
+							@media screen and (max-width: 767px) {
+							display:none;
+							}
+                        }
+                    }
+                }
+            }
+        }
+    }
+	
+	
+}

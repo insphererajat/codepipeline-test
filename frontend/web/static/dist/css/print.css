@@ -1,0 +1,7 @@
+@media print {
+  @page { margin: 0; }
+  body { margin: 1.6cm; }
+  .c-f-header__wrapper-top, .c-f-header__wrapper-main, .c-f-footer__wrapper {
+	  dispaly: none;
+  }
+}

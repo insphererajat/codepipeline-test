@@ -1,0 +1,11 @@
+yum -y update
+
+echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+echo "Install AWS CLI, Zip, SSH & Git library"
+echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+yum install -y aws-cli zip openssh-clients
+
+echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+echo "Zipping the code to artifact.zip      "
+echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+zip -q -r /tmp/artifact.zip * # package up the application for deployment

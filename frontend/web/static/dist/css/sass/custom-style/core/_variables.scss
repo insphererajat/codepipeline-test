@@ -1,0 +1,86 @@
+
+
+$primary          : #20A4F3;
+$primary_sh1      : lighten($primary,9.2%); /* color code == #4db6f5 */
+$primary_sh2      : #e0edf9;
+$success          : #2EC4B6;
+$success_light    : #d6faf2;
+$success_light2   : #d6f4f1;
+$success_light3   : #b0e9dc;
+$success_light4   : #e1f8f6;
+$success_sh1      : #7ed321;
+$success_sh2      : #c0e3db;
+$success_sh3      : #96e1da;
+$success_sh4      : #32d02c;
+$success_sh5      : #f6fffe;
+$danger           : #FF3366;
+$danger_light     : #ffd8df;
+$warning          : #f9ba48;
+$warning_light    : #fcefde;
+$zblack           : #000000;
+$zblack2          : rgba($zblack,0.87);
+$black            : #393939;
+$black_sh1        : #333333;
+$black_sh2        : lighten($black_sh1,20%); /* color code == #666666 also (0,0,0,0.6) */
+$black_sh3        : lighten($black_sh1,40%); /* color code == #999999 */
+$black_sh4        : lighten($black_sh1,60%); /* color code == #cccccc */
+$black_sh5        : lighten($black_sh1,41%); /* color code == #9c9c9c */
+$black_sh6        : rgba($zblack, 0.15);
+$black_sh7        : #979797;
+$black_sh8        : #485158;
+$grey             : #6f6f6f;
+$grey_sh1         : lighten($grey,40%); /* color code == #d5d5d5 */
+$grey_sh2         : lighten($grey,47%); /* color code == #e7e7e7 */
+$grey_sh3         : lighten($grey,51.8%); /* color code == #f3f3f3 */
+$grey_sh4         : #eaeaea;
+$grey_sh5         : lighten($grey,48%); /* color code == #e9e9e9 */
+$grey_sh6         : rgba(118,118,118,0.6); /* color code == #acacac */
+$grey_sh7         : #8c8c8c;
+$grey_sh8         : #c2c2c2;
+$grey_sh9         : #dae1e8;    
+$grey_sh10        : #949da4;
+$grey_sh11        : #d8d8d8;
+$grey_sh12        : #c9c9c9;
+$grey_sh13        : #767676;
+$grey_sh14        : #7c7c7c;
+$grey_sh15        : #eeeeee;
+$grey_sh16        : #dfdfdf;
+$grey_sh17        : #979797;
+$bluishgrey       : #323c47;
+$white            : #ffffff;
+$white_sh1        : darken($white,1%); /* color code == #fcfcfc */
+$white_sh2        : darken($white,4%); /* color code == #f5f5f5 */
+$white_sh3        : darken($white,4.5%); /* color code == #f4f4f4 */
+$white_sh4        : #fbfbfb;
+$white_sh5        : #f6f6f6;
+$white_sh6        : #efefef;
+$white_sh7        : darken($white,5%); /* color code == #f2f2f2 */ 
+$purple           : #bd10e0; 
+$orange           : $warning;
+$pink             : #fd4674;
+$darkgreen        : #052f09;
+$light_green1     : #037d21;
+$light_green2     : #3f7659;
+$light_green3     : #18916c;
+$light_green4     : #bbd397;
+$light_green5     : #def2e9;
+$light_green6     : #b8e7d2;
+/*  Theme color  */
+$theme_color      : #18916c;
+$theme_color2     : #def2e9;
+$theme_color3     : #ecac48;
+
+/* Social ▸ Colors */
+$facebook         : #426ac0;
+$twitter          : #00aeef;
+$bitly            : #ee6123;
+$pinterest        : #bd081c;
+$googleplus       : #dd4b39;
+$youtube          : #d62423;
+$instagram        : #7b70a3;
+$linkedin         : #0274b3;
+$rss              : #ff7e28;
+$facebookdark     : #2b548b;
+$twitterdark      : #289ccf;
+$wp               : #2a9fc8;
+$vimeo            : #20b9eb;

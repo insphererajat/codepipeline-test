@@ -1,0 +1,260 @@
+.c-f-header {
+    &__wrapper { 
+        background: $white none repeat scroll 0 0;
+        &-top {  
+		    display:none;
+            background: rgba(219,240,227,1);
+            background: -moz-linear-gradient(left, rgba(219,240,227,1) 0%, rgba(188,211,154,1) 100%);
+            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(219,240,227,1)), color-stop(100%, rgba(188,211,154,1)));
+            background: -webkit-linear-gradient(left, rgba(219,240,227,1) 0%, rgba(188,211,154,1) 100%);
+            background: -o-linear-gradient(left, rgba(219,240,227,1) 0%, rgba(188,211,154,1) 100%);
+            background: -ms-linear-gradient(left, rgba(219,240,227,1) 0%, rgba(188,211,154,1) 100%);
+            background: linear-gradient(to right, rgba(219,240,227,1) 0%, rgba(188,211,154,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbf0e3', endColorstr='#bcd39a', GradientType=1 );
+            &-container {
+                height: 50px;
+                @extend .u-flexed;
+                @extend .u-justify-end;
+                @extend .u-align-center;
+            } 
+
+            &-item {
+                + .c-f-header__wrapper-top-item {
+                    margin-left: 30px;
+                }
+                .top__menu {
+                    @extend .u-flexed; 
+    
+                    &-item {
+                        &-link {
+                            color: $zblack;
+                            margin: 0 15px;
+                            @extend .fs14;
+                            @extend .pf-regular;
+                            @include transition(all 0.3s); 
+    
+                            &:hover, &:focus {
+                                color: $theme_color;
+                            }
+                        }
+                    }
+                }
+                .top__mode {
+                    @extend .u-flexed;
+                    &-item {
+                        &-link {
+                            background: $theme_color none repeat scroll 0 0;
+                            color: $white;
+                            height: 50px;
+                            width: 50px;
+                            @extend .u-flexed;
+                            @extend .u-justify-center;
+                            @extend .u-align-center;
+                            @extend .fs14;
+                            @extend .pf-regular;
+                            @include transition(all 0.3s);
+
+                            &.day {
+                                background: $white none repeat scroll 0 0;
+                                color: $zblack;
+                                &:hover, &:focus {
+                                    color: $theme_color;
+                                }
+                            }
+                            &.night {
+                                background: $black none repeat scroll 0 0; 
+                                color: $white;
+                                &:hover, &:focus {
+                                    color: $theme_color2; 
+                                }
+                            }
+                        }
+                    } 
+                }
+    
+                &.font {
+                    @extend .u-flexed;  
+                    @extend .u-align-center;
+                    .cantroler {
+                        width: 17px;
+                        height: 17px;
+                        background: $theme_color2 none repeat scroll 0 0;
+                        color: $zblack;
+                        @include transition(all 0.3s); 
+                        @extend .fs10;
+                        @extend .pf-regular;
+                        @extend .u-cursor-pointer;
+                        @extend .u-radius100;
+                        @extend .u-flexed;
+                        @extend .u-justify-center;
+                        @extend .u-align-center;
+
+                        &:hover {
+                            background: $theme_color none repeat scroll 0 0;
+                            color: $white;
+                        }
+                    }
+                    .object {
+                        color: $zblack;
+                        margin: 0 10px;
+                        @extend .fs14;
+                        @extend .pf-regular;
+                    }
+                }
+                &.mode {
+    
+                }
+            }
+        }
+        &-main {
+           &-container {
+                @extend .u-flexed;
+                @extend .u-align-center;
+           }
+
+            &-item {
+                &.main__logo {
+                    width: 170px; 
+                    position: relative;
+
+                    .main__logo-item { 
+                        position: relative;
+                        background: $white none repeat scroll 0 0;
+                        width: 170px;
+                        display: block;  
+                        height: 146px;
+                        text-align: center;
+                        line-height: 146px;
+                        @include box-shadow(0px 0px 59px 2px rgba(0,0,0,0.1));
+                        
+                        &-image {
+                            max-width: 140px; 
+                        }
+                    }
+                }
+                &.main__content {
+                    width: calc(100% - 215px);
+                    padding: 25px 0px 25px 25px;
+                    @extend .u-flexed;
+                    @extend .u-align-center; 
+                    @extend .u-justify-btw; 
+                    .main__content-item {
+                        .site__title {
+                            .title {
+                                color: #0b165c;
+                                margin-bottom: 0px;
+                                @extend .pf-medium;
+                                @extend .fs30;
+                            }
+                            .sub-title {
+                                color: $black;
+                                margin-bottom: 0px;
+                                @extend .pf-medium;
+                                @extend .fs22;
+                            }
+                            .caption {
+                                color: $black;
+                                margin-bottom: 0px;
+                                @extend .pf-regular;
+                                @extend .fs14;
+                            }
+                        }
+                        .site__connect {
+                            @extend .u-flexed;
+
+                            &-item {
+                                + .site__connect-item {
+                                    margin-left: 25px;
+                                }
+                                &-link {
+                                    @extend .u-flexed;
+                                    @extend .u-align-center; 
+                                    &-icon {
+                                        width: 45px;
+                                        height: 45px;
+                                        background: $theme_color2 none repeat scroll 0 0;
+                                        margin-right: 6px;
+                                        @extend .u-radius100;
+                                        @extend .u-flexed;
+                                        @extend .u-align-center; 
+                                        @extend .u-justify-center;
+                                        @include transition(all 0.3s);
+                                        
+                                        .u-icon {
+                                            @extend .fs18;
+                                            color: $black;
+                                            @include transition(all 0.3s); 
+                                        }
+                                    } 
+                                    &-value {
+                                        color: $black; 
+                                        @extend .pf-regular;
+                                        @extend .fs14;
+                                    }
+
+                                    &:hover, &:focus {
+                                        .site__connect-item-link-icon {
+                                            background: $theme_color3 none repeat scroll 0 0;
+                                            .u-icon {
+                                                color: $white;
+                                            }
+                                        } 
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+         
+
+        @include responsive(xs) { 
+           
+        }
+        @media screen and (max-width: 1200px) {
+            .site__title {
+                .title { 
+                    font-size: 24px !important;
+                }
+                .sub-title { 
+                    font-size: 18px !important;
+                } 
+            }
+            .c-f-header__wrapper-main-item.main__logo .main__logo-item {
+                height: 160px;
+            }
+        }
+        @media screen and (max-width: 992px) {
+            .c-f-header__wrapper-main-item.main__logo .main__logo-item {
+                position: relative;
+                top: 0; 
+            }
+            .c-f-header__wrapper-main-item.main__content {
+                width: 100%;
+                padding: 15px;
+                text-align: center;
+                flex-direction: column;  
+            }
+            .site__title {
+                margin-bottom: 15px;
+            }
+        }
+        @media screen and (max-width: 768px) { 
+		.c-f-header__wrapper-main-container {
+		 display:block;	
+		}
+            .c-f-header__wrapper-main-item.main__logo {
+                margin:auto;
+            } 
+            .c-f-header__wrapper .c-f-header__wrapper-main-item.main__logo .main__logo-item {
+                height: auto !important;
+                width: auto !important;
+                box-shadow: none !important; 
+            }
+            .c-f-header__wrapper-main-item.main__logo .main__logo-item-image {
+                max-width: 141px;
+            }
+        }
+    }
+}

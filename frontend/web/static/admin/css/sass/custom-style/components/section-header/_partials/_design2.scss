@@ -1,0 +1,30 @@
+.adm-c-sectionHeader {
+    $sectionHeader: &;
+
+    &.design2 {
+        #{$sectionHeader} {
+            &__container {
+                position: relative;
+
+                .close {
+                    position: absolute;
+                    right: 15px;
+                    font-size: 16px;
+                    top: 50%;
+                    @include translate(0, -50%);
+                    color: $warning;
+                    @include opacity(1);
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+
+            &__label {
+                width: 100%;
+                padding: 0 15px;
+            }
+        }
+    }
+}

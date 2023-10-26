@@ -1,0 +1,31 @@
+/* dashboard files
+   ======================== */
+.c-dashboardwarp {
+	  @extend .u-flexed;
+	  margin-top:-8px;
+	  min-height:calc(100vh - 123px);
+	  position:relative;
+	  
+	  &__navigationwrap {
+		  @include box-shadow(10px 3px 34px -7px rgba(192,192,192,0.72));
+			 background-color: $light_green5;
+			 background-image:url(../images/dashboard-navigation-bg.jpg);
+			 background-repeat:no-repeat;
+			 background-position: right bottom;
+			 width:330px;
+			 padding:32px 26px;
+			 padding-bottom:175px;
+			 display:none;
+			 
+			
+	  }
+	  
+	  &__contentwrap {
+		  width:calc(100% - 0px);
+		  padding:38px 0px;
+		  
+	  }
+}
+
+/* dashboard files
+   ======================== */

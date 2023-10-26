@@ -1,0 +1,345 @@
+.adm-c-button-v2 {
+    text-align: center;
+    @include transition(all 0.3s ease);
+    @extend .adm-u-flexed;
+    @extend .adm-u-align-center;
+    @extend .adm-u-justify-center;
+    outline: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+
+    &.shadow {
+        @include box-shadow((0 2px 3px 0 rgba($zblack, 0.26), 0 2px 6px 0 rgba($zblack, 0.16)));
+    }
+
+    &.shadow2 {
+        @include box-shadow(0 3px 7px 0 rgba(31, 134, 195, 0.33));
+    }
+
+    &.min-w180 {
+        min-width: 180px;
+    }
+
+    &.min-w250 {
+        min-width: 250px;
+    }
+
+    &.min-w200 {
+        min-width: 200px;
+    }
+
+    &.min-w120 {
+        min-width: 120px;
+    }
+
+    &.sqr-rounded {
+        @extend .adm-u-flexed;
+        text-align: center;
+        @include size(32px);
+        line-height: 32px;
+        @extend .adm-u-align-center;
+        @extend .adm-u-justify-center;
+        @include border-radius(50%);
+    }
+
+    &.rounded {
+        @include border-radius(50%);
+    }
+
+    &.res-block {
+        display: block;
+        width: 100%;
+
+        @include responsive(xs) {
+            display: inline-block;
+            width: inherit;
+        }
+    }
+
+    &.blocked {
+        display: block;
+        width: 100%;
+
+        &--text-lt {
+            text-align: left;
+        }
+
+        +.blocked {
+            margin-top: 8px;
+        }
+    }
+
+    &.withIcon {
+        @extend .adm-u-inline-flexed;
+        @extend .adm-u-align-center;
+    }
+
+    .adm-u-icon-lt {
+        margin-right: 10px;
+    }
+
+    .adm-u-icon-rt {
+        margin-left: 10px;
+    }
+
+    &.inactive {
+        @include opacity(0.4);
+    }
+
+    &.disabled {
+        @include blur(0.1);
+        @include opacity(0.4);
+        cursor: not-allowed;
+    }
+
+    &--primary {
+        color: $white !important;
+        border: none;
+
+        &.blue {
+            background-color: $primary;
+
+            &:hover,
+            &:focus {
+                background-color: lighten($primary, 9%);
+            }
+
+            &.disabled,
+            &:disabled,
+            &[disabled] {
+
+                &:hover,
+                &:focus {
+                    background-color: $primary;
+                }
+            }
+        }
+
+        &.green {
+            background-color: $success;
+
+            &:hover,
+            &:focus {
+                background-color: lighten($success, 9%);
+            }
+
+            &.disabled,
+            &:disabled,
+            &[disabled] {
+
+                &:hover,
+                &:focus {
+                    background-color: $success;
+                }
+            }
+        }
+
+        &.red {
+            background-color: $danger;
+
+            &:hover,
+            &:focus {
+                background-color: lighten($danger, 9%);
+            }
+
+            &.disabled,
+            &:disabled,
+            &[disabled] {
+
+                &:hover,
+                &:focus {
+                    background-color: $danger;
+                }
+            }
+        }
+
+        &.orange {
+            background-color: $warning;
+            border: 1px solid darken($warning, 8%);
+
+            &:hover,
+            &:focus {
+                background-color: lighten($warning, 9%);
+                border-color: $warning;
+            }
+
+            &.disabled,
+            &:disabled,
+            &[disabled] {
+
+                &:hover,
+                &:focus {
+                    background-color: $warning;
+                }
+            }
+        }
+
+        &.grey {
+            background-color: $black_sh3;
+
+            &:hover,
+            &:focus {
+                background-color: lighten($black_sh3, 9%);
+            }
+
+            &.disabled,
+            &:disabled,
+            &[disabled] {
+
+                &:hover,
+                &:focus {
+                    background-color: $black_sh3;
+                }
+            }
+        }
+
+        &.disabled,
+        &:disabled,
+        &[disabled] {
+            @include blur(0.1);
+            @include opacity(0.4);
+            cursor: not-allowed;
+        }
+
+        &:hover,
+        &:focus {
+            color: $white !important;
+        }
+
+        &.grey2 {
+            background-color: $grey_sh3;
+            color: $black_sh3 !important;
+
+            &:hover,
+            &:focus {
+                background-color: darken($grey_sh3, 5%);
+            }
+
+            &.disabled,
+            &:disabled,
+            &[disabled] {
+
+                &:hover,
+                &:focus {
+                    background-color: $black_sh3;
+                }
+            }
+        }
+    }
+}
+
+.buttons-multiple {
+    @include flex-direction(column, vertical);
+    @extend .adm-u-flexed;
+    @extend .adm-u-justify-center;
+
+    .button-v2+.button-v2 {
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+
+    @include responsive(sm) {
+        @include flex-direction(row, horizontal);
+        @include align-items(center);
+
+        .button-v2+.button-v2 {
+            margin-left: 20px;
+            margin-top: 0px;
+        }
+    }
+
+    &--justifyStart {
+        @include justify-content(flex-start !important);
+    }
+
+    &--resInline {
+        @include flex-direction(row, horizontal);
+
+        .button-v2+.button-v2 {
+            margin-left: 20px;
+            margin-top: 0px;
+        }
+    }
+}
+
+.adm-u-link {
+
+    &.blue {
+        color: $primary !important;
+    }
+
+    &.green {
+        color: $success !important;
+    }
+
+    &.red {
+        color: $danger !important;
+    }
+
+    &.orange {
+        color: $warning !important;
+    }
+
+    &.grey {
+        color: $black_sh5 !important;
+    }
+    &.grey_v2 {
+        color: $grey_sh2 !important;
+    }
+    &.greyBg {
+        background: $white_sh2 none repeat scroll 0 0;
+    }
+    &.withIcon {
+        @extend .adm-u-flexed;
+        @extend .adm-u-align-center;
+        line-height: 1;
+
+        .adm-u-icon-lt {
+            margin-right: 10px;
+        }
+
+        .adm-u-icon-rt {
+            margin-left: 10px;
+        }
+    }
+}
+.adm-c-button {
+    .btn {
+        @extend .pf-regular;
+        @extend .fs13;
+    }
+    .btn-rounded {
+        @extend .adm-u-radius50px;
+    }
+    .btn-flat {
+        border-radius: 0;
+    }
+    .btn-outline-primary, .btn-outline-secondary, .btn-outline-secondary, .btn-outline-danger, .btn-outline-warning, .btn-outline-info, .btn-outline-dark, .btn-outline-light {
+        border-width: 1px; 
+    } 
+    .btn-outline-primary { 
+        border-color: $primary;
+    }
+    .btn-outline-secondary { 
+        border-color: #6c757d;
+    }
+    .btn-outline-success { 
+        border-color: #28a745;
+    }
+    .btn-outline-danger { 
+        border-color: $danger;
+    }
+    .btn-outline-warning { 
+        border-color: $warning;
+    }
+    .btn-outline-info { 
+        border-color: #117a8b;
+    }
+    .btn-outline-dark { 
+        border-color: #343a40;
+    } 
+}

@@ -1,0 +1,16 @@
+echo "APPLICATION_NAME: $APPLICATION_NAME"
+echo "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
+echo "AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION"
+# echo "AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY"
+echo "DEPLOYMENT_CONFIG: $DEPLOYMENT_CONFIG"
+echo "S3_BUCKET: $S3_BUCKET"
+echo "BITBUCKET_BRANCH: $BITBUCKET_BRANCH"
+echo "BITBUCKET_BRANCH_CHECK: $BITBUCKET_BRANCH_CHECK"
+
+if [ "$BITBUCKET_BRANCH" != "$BITBUCKET_BRANCH_CHECK" ]
+then
+    echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+    echo "Branch Names are not matching"
+    echo ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+    exit 1
+fi

@@ -1,0 +1,116 @@
+.adm-c-tabbing {
+    $subTabbing: &;
+
+    &.design5 {
+        position: relative;
+
+        #{$subTabbing} {
+            &__nav {
+                border-bottom: none;
+                position: relative;
+                padding-top: 10px;
+                background-color: $white_sh2;
+
+                li+li {
+                    margin-left: 20px;
+                }
+
+                &:before {
+                    content: '';
+                    height: 1px;
+                    background-color: $grey_sh16;
+                    width: 100%;
+                    position: absolute;
+                    display: block;
+                    top: 6px;
+                }
+
+                &__link {
+                    padding: 12px 0;
+                    position: relative;
+                    color: $black_sh8;
+                    @extend .fs15;
+                    @extend .pf-medium;
+                    border: none;
+                    display: block;
+
+                    &:hover,
+                    &:focus {
+                        border: none;
+                    }
+
+                    &.active {
+                        &:before {
+                            content: '';
+                            width: 100%;
+                            position: absolute;
+                            height: 4px;
+                            background-color: var(--orange);
+                            top: -5px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .btn-abs {
+            position: absolute;
+            right: 0;
+            top: 14px;
+        }
+
+        .scrtabs-tab-container,
+        .scrtabs-tabs-fixed-container {
+            height: inherit;
+        }
+
+        .scrtabs-tab {
+            &-container {
+                @extend .adm-u-flexed;
+                @include flex-wrap(nowrap);
+            }
+
+            &-scroll-arrow {
+                padding-top: 5px;
+                text-align: center;
+                border: none;
+                @include transition(all 0.3s ease);
+
+                &-right,
+                &-left {
+                    &:before {
+                        content: '\f105';
+                        @extend .if-solid;
+                        @extend .fs20;
+                        color: $warning;
+                        @include transition(all 0.3s ease);
+                        line-height: 32px;
+                    }
+
+                    &.scrtabs-disable {
+                        &:before {
+                            color: $warning_light;
+                        }
+                    }
+                }
+
+                &-left {
+                    &:before {
+                        content: '\f104';
+                    }
+                }
+
+                .glyphicon {
+                    display: none;
+                }
+            }
+        }
+
+        &.sticky {
+            z-index: 9999;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+    }
+}

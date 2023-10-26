@@ -1,0 +1,54 @@
+.adm-c-pageContainer {
+    $pageContainerSelf: &;
+
+    &__wrapper {
+        width: 100%;
+    }
+
+    @include responsive(xs) {
+        @include respond-to(md) {
+            #{$pageContainerSelf} {
+                &__wrapper {
+                    margin-left: 260px;
+                    @include calc(width, '100% - 260px');
+                    @include transition(all 0.3s ease);
+                    
+                    &.sidebar-collapsed {
+                        margin-left: 70px;
+                        @include calc(width, '100% - 70px');
+                    }
+                }
+            }
+        }
+    }
+}
+
+.adm-c-mainContainer {
+    padding: 15px 20px;
+    @include calc(min-height, '100vh - 140px');
+}
+.adm-basicBlock {
+    width: 100%;
+    &.white {
+        background: $white none repeat scroll 0 0;
+    }
+}
+
+body {
+    &.adm-c-login-page {
+
+        .adm-c-sideBar,
+        .adm-c-header__wrapper,
+        .adm-c-footer {
+            display: none;
+        }
+    }
+
+    &.adm-c-error-page {
+
+        .adm-c-header__wrapper,
+        .adm-c-footer {
+            display: none;
+        }
+    }
+}

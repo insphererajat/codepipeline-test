@@ -1,0 +1,82 @@
+.adm-c-readOnly__screen {
+    $readSelf: &;
+
+    &.design1 {
+        #{$readSelf} {
+            &__container {
+                &__list {
+                    padding: 10px 20px;
+                    @extend .adm-u-flexed;
+                    @extend .adm-u-align-center;
+                    position: relative;
+                    border: 1px solid $grey_sh2;
+                    border-top: none;
+
+                    .field-label {
+                        color: $black;
+                        @extend .fs14;
+                        @extend .pf-medium;
+                        position: relative;
+                        min-width: 180px;
+
+                        &:after {
+                            content: '\f142';
+                            margin: 0 10px;
+                            @extend .if-solid;
+                            color: $grey_sh7;
+                            position: absolute;
+                            right: 0;
+                            top: 50%;
+                            @include translate(0, -50%);
+                            @extend .fs12;
+                        }
+                    }
+
+                    .field-value {
+                        @extend .fs14;
+                        @extend .pf-regular;
+                        color: $orange;
+                    }
+                }
+
+                &__grid {
+                    @extend .adm-u-flexed;
+                    @extend .adm-u-flex-wrap;
+
+                    &.col2 {
+                        #{$readSelf}__container__list {
+                            @include flex(1 0 calc(100% / 2));
+
+                            &.fullwidth {
+                                @include flex(auto);
+                                width: 100%;
+                            }
+                        }
+                    }
+
+                    &.col3 {
+                        #{$readSelf}__container__list {
+                            @include flex(1 0 calc(100% / 3));
+
+                            &.fullwidth {
+                                @include flex(auto);
+                                width: 100%;
+                            }
+                        }
+                    }
+
+                    &.col4 {
+                        #{$readSelf}__container__list {
+                            @include flex(1 0 calc(100% / 4));
+
+                            &.fullwidth {
+                                @include flex(auto);
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

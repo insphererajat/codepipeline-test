@@ -1,0 +1,362 @@
+/* Begin Roboto face files
+   ======================== */
+@font-face {
+    font-family: 'RobotoBlack';
+    src: url('../fonts/roboto/RobotoBlack.eot');
+    src: url('../fonts/roboto/RobotoBlack.eot') format('embedded-opentype'),
+        url('../fonts/roboto/RobotoBlack.woff2') format('woff2'),
+        url('../fonts/roboto/RobotoBlack.woff') format('woff'),
+        url('../fonts/roboto/RobotoBlack.ttf') format('truetype'),
+        url('../fonts/roboto/RobotoBlack.svg#RobotoBlack') format('svg');
+}
+
+@font-face {
+    font-family: 'RobotoBold';
+    src: url('../fonts/roboto/RobotoBold.eot');
+    src: url('../fonts/roboto/RobotoBold.eot') format('embedded-opentype'),
+        url('../fonts/roboto/RobotoBold.woff2') format('woff2'),
+        url('../fonts/roboto/RobotoBold.woff') format('woff'),
+        url('../fonts/roboto/RobotoBold.ttf') format('truetype'),
+        url('../fonts/roboto/RobotoBold.svg#RobotoBold') format('svg');
+}
+
+@font-face {
+    font-family: 'RobotoLight';
+    src: url('../fonts/roboto/RobotoLight.eot');
+    src: url('../fonts/roboto/RobotoLight.eot') format('embedded-opentype'),
+        url('../fonts/roboto/RobotoLight.woff2') format('woff2'),
+        url('../fonts/roboto/RobotoLight.woff') format('woff'),
+        url('../fonts/roboto/RobotoLight.ttf') format('truetype'),
+        url('../fonts/roboto/RobotoLight.svg#RobotoLight') format('svg');
+}
+
+@font-face {
+    font-family: 'RobotoMedium';
+    src: url('../fonts/roboto/RobotoMedium.eot');
+    src: url('../fonts/roboto/RobotoMedium.eot') format('embedded-opentype'),
+        url('../fonts/roboto/RobotoMedium.woff2') format('woff2'),
+        url('../fonts/roboto/RobotoMedium.woff') format('woff'),
+        url('../fonts/roboto/RobotoMedium.ttf') format('truetype'),
+        url('../fonts/roboto/RobotoMedium.svg#RobotoMedium') format('svg');
+}
+
+@font-face {
+    font-family: 'RobotoRegular';
+    src: url('../fonts/roboto/RobotoRegular.eot');
+    src: url('../fonts/roboto/RobotoRegular.eot') format('embedded-opentype'),
+        url('../fonts/roboto/RobotoRegular.woff2') format('woff2'),
+        url('../fonts/roboto/RobotoRegular.woff') format('woff'),
+        url('../fonts/roboto/RobotoRegular.ttf') format('truetype'),
+        url('../fonts/roboto/RobotoRegular.svg#RobotoRegular') format('svg');
+}
+
+@font-face {
+    font-family: 'RobotoThin';
+    src: url('../fonts/roboto/RobotoThin.eot');
+    src: url('../fonts/roboto/RobotoThin.eot') format('embedded-opentype'),
+        url('../fonts/roboto/RobotoThin.woff2') format('woff2'),
+        url('../fonts/roboto/RobotoThin.woff') format('woff'),
+        url('../fonts/roboto/RobotoThin.ttf') format('truetype'),
+        url('../fonts/roboto/RobotoThin.svg#RobotoThin') format('svg');
+}
+
+
+/* Begin Roboto face files
+   ======================== */
+
+/* Begin fontawesome fonts face files
+   ======================== */
+
+
+/* End fontawesome fonts face files
+   ======================== */
+
+body,
+html {
+    background: $white_sh2 none repeat scroll 0 0;
+    @include size(100%);
+    height: auto;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+}
+
+a,
+a:hover,
+a:focus {
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+ul li,
+ol li,
+ul,
+ol {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.if-regular {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+}
+
+.if-solid {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+.pf-black {
+    font-family: 'RobotoBlack';
+}
+
+.pf-bold {
+    font-family: 'RobotoBold';
+}
+
+.pf-light {
+    font-family: 'RobotoLight';
+}
+
+.pf-medium {
+    font-family: 'RobotoMedium';
+}
+
+.pf-regular {
+    font-family: 'RobotoRegular';
+}
+
+.pf-thin {
+    font-family: 'RobotoThin';
+}
+
+
+.fs6 {
+    font-size: 6px;
+}
+
+.fs7 {
+    font-size: 7px;
+}
+
+.fs8 {
+    font-size: 8px;
+}
+
+.fs9 {
+    font-size: 9px;
+}
+
+.fs10 {
+    font-size: 10px;
+}
+
+.fs11 {
+    font-size: 11px;
+}
+
+.fs12 {
+    font-size: 12px;
+}
+
+.fs13 {
+    font-size: 13px;
+}
+
+.fs14 {
+    font-size: 14px;
+}
+
+.fs15 {
+    font-size: 15px;
+}
+
+.fs16 {
+    font-size: 16px;
+}
+
+.fs17 {
+    font-size: 17px;
+}
+
+.fs18 {
+    font-size: 18px;
+}
+
+.fs20 {
+    font-size: 20px;
+}
+
+.fs22 {
+    font-size: 22px;
+}
+
+.fs24 {
+    font-size: 24px;
+}
+
+.fs25 {
+    font-size: 25px;
+}
+
+.fs26 {
+    font-size: 26px;
+}
+
+.fs28 {
+    font-size: 28px;
+}
+
+.fs30 {
+    font-size: 30px;
+}
+
+.fs34 {
+    font-size: 34px;
+}
+.fs40 {
+    font-size: 40px;
+}
+
+.fs48 {
+    font-size: 48px;
+}
+
+.fs60 {
+    font-size: 60px;
+}
+
+.fs96 {
+    font-size: 96px;
+}
+
+.ls-15 {
+    letter-spacing: -1.5px;
+}
+
+.ls-05 {
+    letter-spacing: -0.5px;
+}
+
+.ls0 {
+    letter-spacing: 0px;
+}
+
+.ls02 {
+    letter-spacing: 0.2px;
+}
+
+.ls05 {
+    letter-spacing: 0.5px;
+}
+
+.ls015 {
+    letter-spacing: 0.15px;
+}
+
+.ls025 {
+    letter-spacing: 0.25px;
+}
+
+.ls05 {
+    letter-spacing: 0.5px;
+}
+
+.ls04 {
+    letter-spacing: 0.4px;
+}
+
+.ls15 {
+    letter-spacing: 1.5px;
+}
+
+.ls1 {
+    letter-spacing: 0.1px;
+}
+
+.fs13 {
+    &__regular {
+        @extend .fs13;
+        @extend .pf-regular;
+        line-height: 1.3;
+    }
+
+    &__medium {
+        @extend .fs13;
+        @extend .pf-medium;
+        line-height: 1.3;
+    }
+}
+
+.fs14 {
+    &__regular {
+        @extend .fs14;
+        @extend .pf-regular;
+        line-height: 1.3;
+    }
+
+    &__medium {
+        @extend .fs14;
+        @extend .pf-medium;
+        line-height: 1.3;
+    }
+}
+
+.fs16 {
+    &__regular {
+        @extend .fs16;
+        @extend .pf-regular;
+        line-height: 1.3;
+    }
+
+    &__medium {
+        @extend .fs16;
+        @extend .pf-medium;
+        line-height: 1.3;
+    }
+}
+
+.fs18 {
+    &__regular {
+        @extend .fs18;
+        @extend .pf-regular;
+        line-height: 1.3;
+    }
+
+    &__medium {
+        @extend .fs18;
+        @extend .pf-medium;
+        line-height: 1.3;
+    }
+}
+
+.fs20 {
+    &__regular {
+        @extend .fs20;
+        @extend .pf-regular;
+        line-height: 1.3;
+    }
+
+    &__medium {
+        @extend .fs20;
+        @extend .pf-medium;
+        line-height: 1.3;
+    }
+}
+.fs26 {
+    &__regular {
+        @extend .fs26;
+        @extend .pf-regular;
+        line-height: 1.3;
+    }
+
+    &__medium {
+        @extend .fs26;
+        @extend .pf-medium;
+        line-height: 1.3;
+    }
+}

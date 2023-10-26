@@ -1,0 +1,39 @@
+.adm-c-tableGrid {
+    $tableGrid: &;
+
+    &.design1 {
+        #{$tableGrid} {
+            &__container {
+                .table {
+                    thead th {
+                        border: none;
+                        background: $warning;
+                        color: $white;
+                        @extend .fs14__medium;
+                        font-weight: normal;
+
+                        &:first-child {
+                            @include border-radius(4px 0 0 4px);
+                        }
+
+                        &:last-child {
+                            @include border-radius(0px 4px 4px 0px);
+                        }
+                    }
+
+                    tbody tr {
+                        &:first-child {
+                            td {
+                                border-top: none;
+                            }
+                        }
+
+                        td {
+                            @extend .fs14__regular;
+                        }
+                    }
+                } 
+            }
+        }
+    }
+}

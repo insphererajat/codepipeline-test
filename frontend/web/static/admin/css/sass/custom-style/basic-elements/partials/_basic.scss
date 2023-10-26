@@ -1,0 +1,674 @@
+/* Begin basic related files
+   ======================== */
+.adm-u-radius0 {
+    @include border-radius(0px);
+}
+
+.adm-u-radius4 {
+    @include border-radius(4px);
+}
+
+.adm-u-radius5 {
+    @include border-radius(5px);
+}
+
+.adm-u-radius6 {
+    @include border-radius(6px);
+}
+
+.adm-u-radius8 {
+    @include border-radius(8px);
+}
+
+.adm-u-radius9 {
+    @include border-radius(9px);
+}
+
+.adm-u-radius10 {
+    @include border-radius(10px);
+}
+
+.adm-u-radius12 {
+    @include border-radius(12px);
+}
+
+.adm-u-radius14 {
+    @include border-radius(14px);
+}
+
+.adm-u-radius16 {
+    @include border-radius(16px);
+}
+
+.adm-u-radius20 {
+    @include border-radius(20px);
+}
+
+.adm-u-radius25 {
+    @include border-radius(25px);
+}
+.adm-u-radius50px {
+    @include border-radius(50px);
+}
+.adm-u-radius50 {
+    @include border-radius(50%);
+}
+
+.adm-u-radius100 {
+    @include border-radius(100%);
+}
+
+.adm-u-cursor-pointer {
+    cursor: pointer !important;
+}
+
+.adm-u-cursor-default {
+    cursor: default !important;
+}
+
+.adm-u-cursor-move {
+    cursor: move !important;
+}
+
+.adm-u-fullwidth {
+    width: 100%;
+}
+
+.adm-u-custom-alertBox {
+    position: absolute;
+    left: 50%;
+    top: -25px;
+    @include translate(-50%, 0%);
+    z-index: 999;
+
+    &.adm-u-top10 {
+        top: 10px;
+    }
+
+    .alert {
+        background-color: $success_light;
+        color: $success;
+        @include border-radius(10px);
+        padding: 14px 50px 14px 18px;
+        @extend .adm-u-flexed;
+        @extend .adm-u-align-center;
+        @extend .adm-u-justify-center;
+
+        &-text {
+            @extend .pf-regular;
+            @extend .fs16;
+            @extend .ls025;
+        }
+
+        .adm-u-icon {
+            padding-right: 12px;
+        }
+
+        .close {
+            @include opacity(1);
+            font-size: inherit;
+            text-indent: 0px;
+            height: 100%;
+            top: 0;
+            right: 0;
+            padding: .75rem 1.25rem;
+            width: inherit;
+
+            &:before,
+            &:after {
+                display: none;
+            }
+
+            .icon {
+                color: $success;
+                @extend .fs20;
+            }
+
+            &:hover {
+                .icon {
+                    color: $danger;
+                }
+            }
+        }
+    }
+}
+
+.vertical-align-h {
+    top: 50%;
+    @include transform(translateY(-50%));
+}
+
+.vertical-align-c {
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+}
+
+.adm-u-bg {
+    &-offWhite {
+        background: $grey_sh3 none repeat scroll 0 0 !important;
+    }
+}
+
+.hide {
+    display: none !important;
+}
+
+.txt-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @extend .w100p;
+    white-space: nowrap;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.no-border-bottom {
+    border-bottom: none !important;
+}
+
+.image-covered {
+    @include background-size(cover);
+    background-position: center center;
+}
+
+.adm-u-word-break {
+    word-break: break-all;
+}
+
+.customized-loaderV2 {
+    .default-loader {
+        &--overlay {
+            background-color: $white;
+        }
+
+        &__content {
+            &--spinner {
+                color: $success;
+            }
+        }
+    }
+}
+
+.dropdown-toggle:focus {
+    outline: none !important;
+}
+
+.icon {
+    &-yellow {
+        color: $warning;
+    }
+
+    &-withShadow {
+        text-shadow: 1px -1px $black_sh7;
+    }
+}
+
+.switchery {
+    background-color: #fff;
+    border: 1px solid #dfdfdf;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    vertical-align: middle;
+    width: 50px;
+}
+
+.switchery>small {
+    background: #fff;
+    border-radius: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    height: 20px;
+    position: absolute;
+    top: 0;
+    width: 20px;
+}
+
+.switchery {
+    &__wrapper {
+        $switchery__wrapper: &;
+        @extend .adm-u-flexed;
+        @extend .adm-u-align-center;
+        margin-bottom: 9px;
+        position: relative;
+
+
+        &.active {
+            #{$switchery__wrapper}-label {
+                color: $success;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            .switchery--action {
+                @include opacity(1);
+                visibility: visible;
+
+                &:hover,
+                &:focus {
+                    .icon {
+                        color: $success !important;
+                    }
+                }
+
+                &.delete {
+
+                    &:hover,
+                    &:focus {
+                        .icon {
+                            color: $danger !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-label {
+            @extend .pf-regular;
+            @extend .fs16;
+            color: $grey;
+            padding-left: 14px;
+            margin-bottom: 0;
+        }
+
+        &-action {
+            position: absolute;
+            right: 0;
+
+            .switchery--action {
+                color: $black_sh3;
+
+                +.switchery--action {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        &-favourite {
+            display: inline-block;
+
+            .icon {
+                &:before {
+                    content: '\f005';
+                    display: block;
+                    @extend .if-regular;
+                    color: $black_sh3;
+                    @extend .fs14;
+                    margin: 0 8px;
+                }
+            }
+
+            &.active {
+                .icon {
+                    &:before {
+                        @extend .if-solid;
+                        display: block;
+                        color: $warning;
+                    }
+                }
+            }
+        }
+
+        &-selector {
+            margin: 0 8px;
+
+            .icon {
+                @extend .fs14;
+                color: $grey_sh12;
+            }
+        }
+
+        .switchery--action {
+            @extend .fs14;
+            @include opacity(0);
+            visibility: hidden;
+
+            .icon {
+                @extend .fs14;
+            }
+        }
+
+        .switchery {
+            width: 40px;
+            background: $white none repeat scroll 0 0 !important;
+            border: 1px solid $grey_sh12 !important;
+            height: 22px;
+            @extend .adm-u-radius14;
+            cursor: pointer;
+            padding-right: 3px;
+
+            >small {
+                background: $grey_sh12 none repeat scroll 0 0;
+                @include size(18px);
+                top: 1px;
+                @include box-shadow(none);
+            }
+        }
+
+        &.design2 {
+            label {
+                color: $black;
+                @extend .fs14;
+                @extend .pf-regular;
+            }
+
+            .icon {
+                color: $grey_sh12;
+                @extend .fs16;
+                margin-left: 3px;
+            }
+        }
+
+        &.design3 {
+            margin-bottom: 0px;
+
+            .switchery {
+                width: 27px;
+                height: 15px;
+
+                >small {
+                    @include size(11px);
+                }
+            }
+        }
+    }
+}
+
+.private__badge {
+    @extend .adm-u-flexed;
+    @extend .adm-u-align-center;
+    background: $grey_sh15 none repeat scroll 0 0;
+    @extend .fs9;
+    color: $black_sh3;
+    @extend .adm-u-radius4;
+    padding: 4px 5px;
+
+    .icon {
+        margin-right: 3px;
+        font-size: 9px !important;
+
+        &.star {
+            color: $black_sh3 !important;
+
+            &.active {
+                color: $warning !important;
+            }
+        }
+    }
+
+    .text {
+        @extend .pf-regular;
+        @extend .fs9;
+    }
+}
+
+.o-close {
+    .icon {
+        color: $success;
+        @extend .fs30;
+        @include transition(all 0.3s ease);
+
+        &:hover {
+            @include rotate(90);
+            color: $danger;
+            @include transition(all 0.3s ease);
+        }
+    }
+}
+
+.divider__wrapper {
+    &.design1 {
+        width: 100%;
+        height: 1px;
+        background: $grey_sh4 none repeat scroll 0 0;
+        @extend .adm-u-flexed;
+    }
+}
+
+.adm-u-generic__box {
+    &.design1 {
+        background: $white none repeat scroll 0 0;
+        padding: 11px;
+        @extend .adm-u-radius8;
+        border: 1px solid $grey_sh2;
+        @include box-shadow(0 3px 3px 0 rgba(221, 221, 221, 0.5));
+    }
+}
+
+.form-grider {
+    &.design1 {
+        @include transition(all 0.3s ease);
+
+        .head-wrapper {
+            position: relative;
+            min-height: 37px;
+            @extend .adm-u-flexed;
+            @extend .adm-u-justify-btw;
+            @extend .adm-u-align-center;
+
+            &__title {
+                @extend .adm-u-flexed;
+                @extend .adm-u-align-center;
+                color: $black;
+
+                &-label,
+                &-icon {
+                    color: $black;
+                }
+
+
+                &-subLabel {
+                    margin-left: 8px;
+                    @extend .pf-regular;
+                    color: $black_sh3;
+                }
+
+                &-iconLock {
+                    margin-left: 8px;
+                    @extend .fs12;
+                    color: $black_sh3;
+                }
+
+                &-icon {
+                    margin-right: 8px;
+
+                    &.numeric {
+                        border: 1px solid $black;
+                        @include size(18px);
+                        @extend .adm-u-flexed;
+                        @extend .adm-u-align-center;
+                        @extend .adm-u-justify-center;
+                        @extend .adm-u-radius50;
+
+                        .icon {
+                            color: $black;
+                            @extend .fs12;
+                        }
+                    }
+                }
+
+                &.label-required {
+                    .head-wrapper__title-label {
+                        @extend .adm-u-flexed;
+                        margin-right: 10px;
+                        position: relative;
+
+                        &:after {
+                            content: '\f621';
+                            @extend .if-solid;
+                            @extend .fs6;
+                            color: $success;
+                            position: absolute;
+                            top: 2px;
+                            right: -10px;
+                        }
+                    }
+                }
+
+                &-toggled {
+                    cursor: pointer;
+
+                    &:after {
+                        content: '\f107';
+                        @extend .if-regular;
+                        @extend .fs14;
+                        color: $black;
+                        margin-left: 8px;
+                    }
+
+                    &.collapsed {
+                        &:after {
+                            @include rotate(180);
+                        }
+                    }
+                }
+
+                &.light-grey {
+
+                    .head-wrapper__title-label,
+                    .head-wrapper__title-icon {
+                        color: $grey_sh14;
+                    }
+                }
+
+            }
+
+            &--noHeight {
+                min-height: inherit;
+                margin-bottom: 10px;
+            }
+        }
+
+        .additional-info {
+            $additionalInfo: '.additional-info';
+
+            &.design1 {
+                background: $white none repeat scroll 0 0;
+                padding: 5px;
+                @extend .adm-u-radius8;
+                border: 1px solid $grey_sh2;
+                @include box-shadow(0 3px 3px 0 rgba(221, 221, 221, 0.5));
+                position: absolute;
+                right: 0;
+                top: 0;
+                visibility: hidden;
+                @include opacity(0);
+                @include transition(all 0.3s ease);
+
+                #{$additionalInfo}__link {
+                    margin: 0 5px;
+                    @extend .fs14;
+
+                    .icon {
+                        @include transition(all 0.3s ease);
+                        color: $black_sh3;
+                    }
+
+                    &:hover {
+                        .icon {
+                            color: $warning;
+                        }
+                    }
+
+                    &.delete {
+                        &:hover {
+                            .icon {
+                                color: $danger;
+                            }
+                        }
+                    }
+                }
+
+                &.right40 {
+                    right: 40px;
+                }
+            }
+        }
+
+        .cop-form--container {
+            margin-bottom: 0px !important;
+
+            +.cop-form--container {
+                margin-top: 12px;
+            }
+        }
+
+        .multi-wrapper {
+            @extend .adm-u-flexed;
+            margin-top: 12px;
+
+            .cop-form--container {
+                &:first-child {
+                    @include flex(1 0 40%);
+                }
+
+                &:last-child {
+                    margin-left: 10px;
+                    @include flex(1 0 calc(60% - 10px));
+                }
+
+                +.cop-form--container {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        &:hover {
+            .additional-info.design1 {
+                visibility: visible;
+                @include opacity(1);
+            }
+        }
+    }
+}
+
+.adm-u-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    @include size(32px);
+    @include opacity(0.6);
+    cursor: pointer;
+    background: none repeat scroll 0 0;
+    outline: none;
+    border: none;
+    @include transition(all 0.3s ease);
+
+    &:hover {
+        @include opacity(1);
+    }
+
+    &:before,
+    &:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 22px;
+        width: 2px;
+        background-color: #333;
+        top: 0;
+    }
+
+    &:before {
+        @include rotate(45);
+    }
+
+    &:after {
+        @include rotate(-45);
+    }
+
+    &:focus {
+        background: none repeat scroll 0 0;
+        outline: none;
+        border: none;
+    }
+}
+
+
+/* End basic related files
+   ======================== */

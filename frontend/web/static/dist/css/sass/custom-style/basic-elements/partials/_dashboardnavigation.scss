@@ -1,0 +1,54 @@
+/* dashboard files
+   ======================== */
+.c-dashboardnav {
+	  @extend .u-flexed; 
+	  @include flex-direction(column, vertical);
+	  &__list {
+		  margin-bottom:7px;
+		  width:100%;
+		  
+		  &-link{
+			@extend .u-flexed;
+			padding:12px 17px;
+			background:$light_green5;
+			@include border-radius(5px);
+			@include transition(all 0.3s ease);
+			
+			 & .icon {
+			 width:40px;
+			 @include font-size(20);
+			 color:$zblack; 
+			  @include transition(all 0.3s ease);
+			}
+			& .linktext {
+				@include font-size(20);
+				color:$zblack; 
+				@extend .pf-medium;
+				@include transition(all 0.3s ease);
+			}
+			
+			&:hover {
+				.icon, .linktext  {
+					color:$theme_color; 
+				}
+			}
+			
+			
+		  }
+		  
+		  &.active {
+			 & .c-dashboardnav__list-link{
+				background:$light_green6; 
+				.icon, .linktext  {
+					color:$zblack; 
+				}
+			  }
+				
+			}
+		 
+	  }
+	  
+}
+
+/* dashboard files
+   ======================== */
