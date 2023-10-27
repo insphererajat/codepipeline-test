@@ -3,8 +3,8 @@ version: 0.2
 phases:
   build:
     commands:
-      - zip -r codepipeline-test.zip .
-      - aws s3 cp codepipeline-test.zip s3://hpsls-codedeploy/
+      - zip -r code-test.zip .
+      - aws s3 cp code-test.zip s3://hpsls-codedeploy/
 
 artifacts:
-  files: codepipeline-test.zip
+  files: code-test.zip
