@@ -1,11 +1,14 @@
 version: 0.2
 
 phases:
+  pre_build:
+    commands:
+      - export VERSION_COUNTER=$(($(aws s3 ls s3://hpsls-codedeploy/HPSLS/ | wc -l) + 1))
+
   build:
     commands:
-      - zip -r code-test-$(date +"%Y%m%d%H%M%S").zip .
-      - aws s3 cp code-test-$(date +"%Y%m%d%H%M%S").zip s3://hpsls-codedeploy/HPSLS/
+      - zip -r code-test-v$VERSION_COUNTER.zip .
+      - aws s3 cp code-test-v$VERSION_COUNTER.zip s3://hpsls-codedeploy/HPSLS/
 
 artifacts:
-  files: code-test-*.zip
-
+  files: code-test-v$VERSION_COUNTER.zip
