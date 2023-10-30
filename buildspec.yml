@@ -7,8 +7,8 @@ phases:
 
   build:
     commands:
-      - zip -r code-test-v$VERSION_COUNTER.zip .
-      - aws s3 cp code-test-v$VERSION_COUNTER.zip s3://hpsls-codedeploy/HPSLS/
+      - zip -r hpslsa-v$VERSION_COUNTER.zip .
+      - aws s3 cp hpslsa-v$VERSION_COUNTER.zip s3://hpsls-codedeploy/HPSLS/
 
 artifacts:
-  files: code-test-v$VERSION_COUNTER.zip
+  files: hpslsa-v$VERSION_COUNTER.zip
