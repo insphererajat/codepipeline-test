@@ -3,8 +3,9 @@ version: 0.2
 phases:
   build:
     commands:
-      - zip -r code-test.zip .
-      - aws s3 cp code-test.zip s3://hpsls-codedeploy/
+      - zip -r code-test-$(date +"%Y%m%d%H%M%S").zip .
+      - aws s3 cp code-test-$(date +"%Y%m%d%H%M%S").zip s3://hpsls-codedeploy/HPSLS/
 
 artifacts:
-  files: code-test.zip
+  files: code-test-*.zip
+
