@@ -3,7 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - export VERSION_COUNTER=$(($(aws s3 ls s3://bucket_name/folder_name/ | wc -l) + 1))
+      - export VERSION_COUNTER=$(($(aws s3 ls s3://bucket_name/bucket_folder_name/ | wc -l) + 1))
 
   build:
     commands:
